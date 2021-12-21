@@ -13,6 +13,7 @@
 		496A4763277179BE00DF8DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 496A4761277179BE00DF8DE5 /* LaunchScreen.storyboard */; };
 		496A476F27717A6000DF8DE5 /* InvoicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A476D27717A6000DF8DE5 /* InvoicesController.swift */; };
 		496A477027717A6000DF8DE5 /* InvoicesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496A476E27717A6000DF8DE5 /* InvoicesController.xib */; };
+		496A477327717C8C00DF8DE5 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A477227717C8C00DF8DE5 /* MainTabController.swift */; };
 		DF3B89C0B3B7CD9841FBA5F4 /* Pods_InvoicesToGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0275457120A331F322505D /* Pods_InvoicesToGo.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		496A4764277179BE00DF8DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		496A476D27717A6000DF8DE5 /* InvoicesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicesController.swift; sourceTree = "<group>"; };
 		496A476E27717A6000DF8DE5 /* InvoicesController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoicesController.xib; sourceTree = "<group>"; };
+		496A477227717C8C00DF8DE5 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		6C4F789BEBA85BC182E224B6 /* Pods-InvoicesToGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InvoicesToGo.release.xcconfig"; path = "Target Support Files/Pods-InvoicesToGo/Pods-InvoicesToGo.release.xcconfig"; sourceTree = "<group>"; };
 		CB0275457120A331F322505D /* Pods_InvoicesToGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InvoicesToGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -48,7 +50,6 @@
 				14F16E55FB124FD6A27EEB3C /* Pods-InvoicesToGo.debug.xcconfig */,
 				6C4F789BEBA85BC182E224B6 /* Pods-InvoicesToGo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -86,6 +87,7 @@
 		496A476A277179F600DF8DE5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				496A477227717C8C00DF8DE5 /* MainTabController.swift */,
 				496A477127717AA500DF8DE5 /* Invoices */,
 			);
 			path = Controllers;
@@ -207,6 +209,7 @@
 			files = (
 				496A4757277179BD00DF8DE5 /* AppDelegate.swift in Sources */,
 				496A4759277179BD00DF8DE5 /* SceneDelegate.swift in Sources */,
+				496A477327717C8C00DF8DE5 /* MainTabController.swift in Sources */,
 				496A476F27717A6000DF8DE5 /* InvoicesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
