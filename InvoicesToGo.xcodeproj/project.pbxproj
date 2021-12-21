@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		496A4757277179BD00DF8DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A4756277179BD00DF8DE5 /* AppDelegate.swift */; };
 		496A4759277179BD00DF8DE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A4758277179BD00DF8DE5 /* SceneDelegate.swift */; };
-		496A475B277179BD00DF8DE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A475A277179BD00DF8DE5 /* ViewController.swift */; };
-		496A475E277179BD00DF8DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 496A475C277179BD00DF8DE5 /* Main.storyboard */; };
 		496A4760277179BE00DF8DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 496A475F277179BE00DF8DE5 /* Assets.xcassets */; };
 		496A4763277179BE00DF8DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 496A4761277179BE00DF8DE5 /* LaunchScreen.storyboard */; };
+		496A476F27717A6000DF8DE5 /* InvoicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A476D27717A6000DF8DE5 /* InvoicesController.swift */; };
+		496A477027717A6000DF8DE5 /* InvoicesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496A476E27717A6000DF8DE5 /* InvoicesController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		496A4753277179BD00DF8DE5 /* InvoicesToGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InvoicesToGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		496A4756277179BD00DF8DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		496A4758277179BD00DF8DE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		496A475A277179BD00DF8DE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		496A475D277179BD00DF8DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		496A475F277179BE00DF8DE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		496A4762277179BE00DF8DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		496A4764277179BE00DF8DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		496A476D27717A6000DF8DE5 /* InvoicesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicesController.swift; sourceTree = "<group>"; };
+		496A476E27717A6000DF8DE5 /* InvoicesController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoicesController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +56,31 @@
 		496A4755277179BD00DF8DE5 /* InvoicesToGo */ = {
 			isa = PBXGroup;
 			children = (
+				496A476A277179F600DF8DE5 /* Controllers */,
 				496A4756277179BD00DF8DE5 /* AppDelegate.swift */,
 				496A4758277179BD00DF8DE5 /* SceneDelegate.swift */,
-				496A475A277179BD00DF8DE5 /* ViewController.swift */,
-				496A475C277179BD00DF8DE5 /* Main.storyboard */,
 				496A475F277179BE00DF8DE5 /* Assets.xcassets */,
 				496A4761277179BE00DF8DE5 /* LaunchScreen.storyboard */,
 				496A4764277179BE00DF8DE5 /* Info.plist */,
 			);
 			path = InvoicesToGo;
+			sourceTree = "<group>";
+		};
+		496A476A277179F600DF8DE5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				496A477127717AA500DF8DE5 /* Invoices */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		496A477127717AA500DF8DE5 /* Invoices */ = {
+			isa = PBXGroup;
+			children = (
+				496A476D27717A6000DF8DE5 /* InvoicesController.swift */,
+				496A476E27717A6000DF8DE5 /* InvoicesController.xib */,
+			);
+			path = Invoices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +141,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				496A477027717A6000DF8DE5 /* InvoicesController.xib in Resources */,
 				496A4763277179BE00DF8DE5 /* LaunchScreen.storyboard in Resources */,
 				496A4760277179BE00DF8DE5 /* Assets.xcassets in Resources */,
-				496A475E277179BD00DF8DE5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +154,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				496A475B277179BD00DF8DE5 /* ViewController.swift in Sources */,
 				496A4757277179BD00DF8DE5 /* AppDelegate.swift in Sources */,
 				496A4759277179BD00DF8DE5 /* SceneDelegate.swift in Sources */,
+				496A476F27717A6000DF8DE5 /* InvoicesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		496A475C277179BD00DF8DE5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				496A475D277179BD00DF8DE5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		496A4761277179BE00DF8DE5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,7 +302,6 @@
 				INFOPLIST_FILE = InvoicesToGo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,7 +329,6 @@
 				INFOPLIST_FILE = InvoicesToGo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
