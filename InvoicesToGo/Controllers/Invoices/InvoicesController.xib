@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InvoicesController" customModule="InvoicesToGo" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="Bqs-0u-jGU" id="Orc-qE-Sa3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,19 +29,30 @@
                     <rect key="frame" x="350" y="94" width="44" height="31"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                    <connections>
+                        <action selector="pressedCreateInvoiceButton:" destination="-1" eventType="touchUpInside" id="pP3-Q2-u5K"/>
+                    </connections>
                 </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Bqs-0u-jGU">
+                    <rect key="frame" x="20" y="138" width="374" height="675"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Bqs-0u-jGU" secondAttribute="trailing" constant="20" id="1Cf-jP-GwW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Bqs-0u-jGU" secondAttribute="bottom" id="CsP-tw-ciJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Fcb-rF-Mdv" secondAttribute="trailing" constant="20" id="DP6-gv-x0a"/>
                 <constraint firstItem="v8A-tK-0sh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="G7L-Ar-hlp"/>
+                <constraint firstItem="Bqs-0u-jGU" firstAttribute="top" secondItem="v8A-tK-0sh" secondAttribute="bottom" constant="8" symbolic="YES" id="Vd6-i3-6U1"/>
                 <constraint firstItem="Fcb-rF-Mdv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="6" id="a4N-ir-vK5"/>
                 <constraint firstItem="v8A-tK-0sh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="aDx-KS-kzB"/>
+                <constraint firstItem="Bqs-0u-jGU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="oYy-B3-8SV"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
             <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-            <point key="canvasLocation" x="132" y="100"/>
+            <point key="canvasLocation" x="131.8840579710145" y="99.776785714285708"/>
         </view>
     </objects>
     <resources>

@@ -14,6 +14,8 @@
 		496A476F27717A6000DF8DE5 /* InvoicesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A476D27717A6000DF8DE5 /* InvoicesController.swift */; };
 		496A477027717A6000DF8DE5 /* InvoicesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496A476E27717A6000DF8DE5 /* InvoicesController.xib */; };
 		496A477327717C8C00DF8DE5 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A477227717C8C00DF8DE5 /* MainTabController.swift */; };
+		496A477727717F8800DF8DE5 /* NewInvoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A477527717F8800DF8DE5 /* NewInvoiceController.swift */; };
+		496A477827717F8800DF8DE5 /* NewInvoiceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496A477627717F8800DF8DE5 /* NewInvoiceController.xib */; };
 		DF3B89C0B3B7CD9841FBA5F4 /* Pods_InvoicesToGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0275457120A331F322505D /* Pods_InvoicesToGo.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +30,8 @@
 		496A476D27717A6000DF8DE5 /* InvoicesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicesController.swift; sourceTree = "<group>"; };
 		496A476E27717A6000DF8DE5 /* InvoicesController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoicesController.xib; sourceTree = "<group>"; };
 		496A477227717C8C00DF8DE5 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		496A477527717F8800DF8DE5 /* NewInvoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvoiceController.swift; sourceTree = "<group>"; };
+		496A477627717F8800DF8DE5 /* NewInvoiceController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewInvoiceController.xib; sourceTree = "<group>"; };
 		6C4F789BEBA85BC182E224B6 /* Pods-InvoicesToGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InvoicesToGo.release.xcconfig"; path = "Target Support Files/Pods-InvoicesToGo/Pods-InvoicesToGo.release.xcconfig"; sourceTree = "<group>"; };
 		CB0275457120A331F322505D /* Pods_InvoicesToGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InvoicesToGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -88,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				496A477227717C8C00DF8DE5 /* MainTabController.swift */,
+				496A477427717F7400DF8DE5 /* NewInvoice */,
 				496A477127717AA500DF8DE5 /* Invoices */,
 			);
 			path = Controllers;
@@ -100,6 +105,15 @@
 				496A476E27717A6000DF8DE5 /* InvoicesController.xib */,
 			);
 			path = Invoices;
+			sourceTree = "<group>";
+		};
+		496A477427717F7400DF8DE5 /* NewInvoice */ = {
+			isa = PBXGroup;
+			children = (
+				496A477527717F8800DF8DE5 /* NewInvoiceController.swift */,
+				496A477627717F8800DF8DE5 /* NewInvoiceController.xib */,
+			);
+			path = NewInvoice;
 			sourceTree = "<group>";
 		};
 		EB19DC5D1DBF9BF385F2D5BC /* Frameworks */ = {
@@ -169,6 +183,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				496A477827717F8800DF8DE5 /* NewInvoiceController.xib in Resources */,
 				496A477027717A6000DF8DE5 /* InvoicesController.xib in Resources */,
 				496A4763277179BE00DF8DE5 /* LaunchScreen.storyboard in Resources */,
 				496A4760277179BE00DF8DE5 /* Assets.xcassets in Resources */,
@@ -211,6 +226,7 @@
 				496A4759277179BD00DF8DE5 /* SceneDelegate.swift in Sources */,
 				496A477327717C8C00DF8DE5 /* MainTabController.swift in Sources */,
 				496A476F27717A6000DF8DE5 /* InvoicesController.swift in Sources */,
+				496A477727717F8800DF8DE5 /* NewInvoiceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
