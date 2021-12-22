@@ -10,8 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewInvoiceController" customModule="InvoicesToGo" customModuleProvider="target">
             <connections>
-                <outlet property="dateLabel" destination="FgY-fC-tX5" id="ROm-QH-SVV"/>
-                <outlet property="invoiceNumberLabel" destination="qh0-Tu-PwL" id="TLu-ah-uWn"/>
+                <outlet property="dateLabel" destination="FgY-fC-tX5" id="jqf-1l-TJj"/>
+                <outlet property="invoiceNumberLabel" destination="qh0-Tu-PwL" id="fCL-LV-6st"/>
                 <outlet property="tableView" destination="bA0-Qs-FRt" id="hn5-o8-unp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -61,6 +61,9 @@
                     <buttonConfiguration key="configuration" style="tinted" title="Add Item">
                         <color key="baseForegroundColor" systemColor="linkColor"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="addItemPressed:" destination="-1" eventType="touchUpInside" id="KCp-Jg-hdt"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ITEMS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOQ-i4-bec">
                     <rect key="frame" x="20" y="181.5" width="49" height="20.5"/>
@@ -69,7 +72,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bA0-Qs-FRt">
-                    <rect key="frame" x="20" y="173" width="374" height="606"/>
+                    <rect key="frame" x="0.0" y="215" width="394" height="564"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5o-Dt-btu">
@@ -100,10 +103,10 @@
                 <constraint firstItem="IOQ-i4-bec" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ZTh-RT-YSg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="z5o-Dt-btu" secondAttribute="bottom" constant="30" id="ahs-e4-dcc"/>
                 <constraint firstItem="V6I-RL-ijP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="buy-9L-Vqh"/>
-                <constraint firstItem="bA0-Qs-FRt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="hZM-wN-1Kb"/>
+                <constraint firstItem="bA0-Qs-FRt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hZM-wN-1Kb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="z5o-Dt-btu" secondAttribute="trailing" constant="20" id="ugk-Ph-Rue"/>
                 <constraint firstItem="WZ8-tJ-vDe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="veo-d7-dlI"/>
-                <constraint firstItem="bA0-Qs-FRt" firstAttribute="top" secondItem="WZ8-tJ-vDe" secondAttribute="bottom" constant="8" symbolic="YES" id="vnI-MN-yi7"/>
+                <constraint firstItem="bA0-Qs-FRt" firstAttribute="top" secondItem="WZ8-tJ-vDe" secondAttribute="bottom" constant="50" id="vnI-MN-yi7"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="131.91964285714286"/>
         </view>

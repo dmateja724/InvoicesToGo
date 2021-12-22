@@ -27,7 +27,14 @@ class InvoicesController: UIViewController {
     }
 
     @IBAction func pressedCreateInvoiceButton(_ sender: Any) {
-        navigationController?.pushViewController(NewInvoiceController(), animated: true)
+        let viewController = NewInvoiceController()
+        // TODO: - dynamically set invoice number
+        // TODO: - move date stuff to extension
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        viewController.viewModel = NewInvoiceViewModel(invoiceNumber: 1, date: dateFormatter.string(from: date), items: [Item]())
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

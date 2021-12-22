@@ -10,9 +10,11 @@ import UIKit
 class NewInvoiceController: UIViewController {
     // MARK: - Properties
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var invoiceNumberLabel: UILabel!
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var invoiceNumberLabel: UILabel!
+    
+    var viewModel: NewInvoiceViewModel?
     
     // MARK: - Lifecycle
 
@@ -21,12 +23,25 @@ class NewInvoiceController: UIViewController {
         configure()
     }
     
-    //MARK: - Helpers
+    //MARK: - Actions
+    
+    @IBAction func addItemPressed(_ sender: UIButton) {
+        let addItemVC = AddItemController()
+        addItemVC.delegate = self
+        present(addItemVC, animated: true, completion: nil)
+    }
+    
+    // MARK: - Helpers
     
     func configure() {
-        self.navigationItem.title = "New Invoice"
+        guard let viewModel = viewModel else { return }
+        
+        navigationItem.title = "New Invoice"
         tableView.delegate = self
         tableView.dataSource = self
+        
+        dateLabel.text = viewModel.date
+        invoiceNumberLabel.text = String(viewModel.invoiceNumber)
     }
 }
 
@@ -34,7 +49,8 @@ class NewInvoiceController: UIViewController {
 
 extension NewInvoiceController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        25
+        guard let viewModel = viewModel else { return 0 }
+        return viewModel.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,3 +66,16 @@ extension NewInvoiceController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension NewInvoiceController: UITableViewDelegate {}
+
+
+// MARK: - AddItemControllerDelegate
+
+extension NewInvoiceController: AddItemControllerDelegate {
+    func cancelButtonPressed() {
+        dismiss(animated: true, completion: nil)
+    }
+
+    func addButtonPressed() {
+        print("add button pressed")
+    }
+}
