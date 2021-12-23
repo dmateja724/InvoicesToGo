@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4917710F2774089100D90BC4 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4917710D2774089100D90BC4 /* ItemCell.swift */; };
+		491771102774089100D90BC4 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4917710E2774089100D90BC4 /* ItemCell.xib */; };
 		495C666B2772C76300C2676F /* NewInvoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C666A2772C76300C2676F /* NewInvoiceViewModel.swift */; };
 		495C666F2772CDE900C2676F /* AddItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C666D2772CDE900C2676F /* AddItemController.swift */; };
 		495C66702772CDE900C2676F /* AddItemController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495C666E2772CDE900C2676F /* AddItemController.xib */; };
@@ -24,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		14F16E55FB124FD6A27EEB3C /* Pods-InvoicesToGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InvoicesToGo.debug.xcconfig"; path = "Target Support Files/Pods-InvoicesToGo/Pods-InvoicesToGo.debug.xcconfig"; sourceTree = "<group>"; };
+		4917710D2774089100D90BC4 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		4917710E2774089100D90BC4 /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		495C666A2772C76300C2676F /* NewInvoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvoiceViewModel.swift; sourceTree = "<group>"; };
 		495C666D2772CDE900C2676F /* AddItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemController.swift; sourceTree = "<group>"; };
 		495C666E2772CDE900C2676F /* AddItemController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItemController.xib; sourceTree = "<group>"; };
@@ -61,6 +65,23 @@
 				6C4F789BEBA85BC182E224B6 /* Pods-InvoicesToGo.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		4917710B2774085E00D90BC4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4917710C2774086600D90BC4 /* ItemCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4917710C2774086600D90BC4 /* ItemCell */ = {
+			isa = PBXGroup;
+			children = (
+				4917710D2774089100D90BC4 /* ItemCell.swift */,
+				4917710E2774089100D90BC4 /* ItemCell.xib */,
+			);
+			path = ItemCell;
 			sourceTree = "<group>";
 		};
 		495C66692772C75900C2676F /* Models */ = {
@@ -101,6 +122,7 @@
 		496A4755277179BD00DF8DE5 /* InvoicesToGo */ = {
 			isa = PBXGroup;
 			children = (
+				4917710B2774085E00D90BC4 /* Views */,
 				495C66692772C75900C2676F /* Models */,
 				496A476A277179F600DF8DE5 /* Controllers */,
 				496A4756277179BD00DF8DE5 /* AppDelegate.swift */,
@@ -212,6 +234,7 @@
 				496A477027717A6000DF8DE5 /* InvoicesController.xib in Resources */,
 				496A4763277179BE00DF8DE5 /* LaunchScreen.storyboard in Resources */,
 				496A4760277179BE00DF8DE5 /* Assets.xcassets in Resources */,
+				491771102774089100D90BC4 /* ItemCell.xib in Resources */,
 				495C66702772CDE900C2676F /* AddItemController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4917710F2774089100D90BC4 /* ItemCell.swift in Sources */,
 				495C666F2772CDE900C2676F /* AddItemController.swift in Sources */,
 				496A4757277179BD00DF8DE5 /* AppDelegate.swift in Sources */,
 				495C666B2772C76300C2676F /* NewInvoiceViewModel.swift in Sources */,

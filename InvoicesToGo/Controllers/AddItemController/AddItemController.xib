@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddItemController" customModule="InvoicesToGo" customModuleProvider="target">
             <connections>
+                <outlet property="nameTextField" destination="0qW-7w-bbM" id="fHD-bl-hIK"/>
+                <outlet property="quantityTextField" destination="B0D-Cc-xfF" id="beI-9i-Lvn"/>
+                <outlet property="rateTextField" destination="rqw-pZ-Iq9" id="Uzc-eH-bwm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

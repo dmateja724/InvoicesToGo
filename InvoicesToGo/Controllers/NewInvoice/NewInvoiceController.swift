@@ -13,14 +13,21 @@ class NewInvoiceController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var invoiceNumberLabel: UILabel!
+    @IBOutlet weak var totalAmountLabel: UILabel!
     
-    var viewModel: NewInvoiceViewModel?
+    let reuseIdentifier = "ItemCell"
+    var viewModel: NewInvoiceViewModel? {
+        didSet {
+            tableView?.reloadData()
+        }
+    }
     
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        setTotal()
     }
     
     //MARK: - Actions
@@ -40,8 +47,22 @@ class NewInvoiceController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellReuseIdentifier: reuseIdentifier)
+        tableView.rowHeight = 65
+        
         dateLabel.text = viewModel.date
         invoiceNumberLabel.text = String(viewModel.invoiceNumber)
+    }
+    
+    func setTotal() {
+        guard let viewModel = viewModel else { return }
+        var total = 0.0
+
+        viewModel.items.map { item in
+            total += item.rate * Double(item.quatity)
+        }
+        
+        totalAmountLabel.text = "$\(total)"
     }
 }
 
@@ -54,10 +75,12 @@ extension NewInvoiceController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        let label = UILabel(frame: CGRect(x: 10, y: 0, width: tableView.frame.width, height: 50))
-        label.text = "item\(indexPath.item)"
-        cell.addSubview(label)
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ItemCell
+        guard let item = viewModel?.items[indexPath.item] else { return UITableViewCell()}
+        
+        cell.itemNameLabel.text = item.name
+        cell.qtyAmountLabel.text = "\(item.quatity) x $\(item.rate)"
+        cell.totalCostLabel.text = "$\(Double(item.quatity) * item.rate)"
         
         return cell
     }
@@ -75,7 +98,11 @@ extension NewInvoiceController: AddItemControllerDelegate {
         dismiss(animated: true, completion: nil)
     }
 
-    func addButtonPressed() {
-        print("add button pressed")
+    func addButtonPressed(item: Item) {
+        viewModel?.items.append(item)
+        DispatchQueue.main.async {
+            self.setTotal()
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
