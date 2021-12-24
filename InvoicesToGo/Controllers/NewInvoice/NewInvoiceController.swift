@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol NewInvoiceControllerDelegate: AnyObject {
+    func saveInvoicePressed(invoice: Invoice)
+}
+
 class NewInvoiceController: UIViewController {
     // MARK: - Properties
     
@@ -16,6 +20,7 @@ class NewInvoiceController: UIViewController {
     @IBOutlet weak var totalAmountLabel: UILabel!
     
     let reuseIdentifier = "ItemCell"
+    weak var delegate: NewInvoiceControllerDelegate?
     var viewModel: NewInvoiceViewModel? {
         didSet {
             tableView?.reloadData()
@@ -37,33 +42,41 @@ class NewInvoiceController: UIViewController {
         present(addItemVC, animated: true, completion: nil)
     }
     
+    @objc func saveTapped() {
+        guard let invoice = viewModel?.invoice else { return }
+        navigationController?.popViewController(animated: true)
+        delegate?.saveInvoicePressed(invoice: invoice)
+    }
+    
     // MARK: - Helpers
     
     func configure() {
-        guard let viewModel = viewModel else { return }
+        guard let invoice = viewModel?.invoice else { return }
         
         navigationItem.title = "New Invoice"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveTapped))
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellReuseIdentifier: reuseIdentifier)
         tableView.rowHeight = 65
         
-        dateLabel.text = viewModel.date
-        invoiceNumberLabel.text = String(viewModel.invoiceNumber)
+        dateLabel.text = invoice.date
+        invoiceNumberLabel.text = String(invoice.invoiceNumber)
         setTotalAmountLabel()
     }
     
     func setTotalAmountLabel() {
-        guard let viewModel = viewModel else { return }
+        guard var invoice = viewModel?.invoice else { return }
         var total = 0.0
 
-        for item in viewModel.items {
+        for item in invoice.items {
             total += item.rate * Double(item.quatity)
         }
         
-        let totalCost = String(format: "%.2f", total)
-        totalAmountLabel.text = "$\(totalCost)"
+        invoice.totalAmount = total
+        let totalAmount = String(format: "%.2f", total)
+        totalAmountLabel.text = "$\(totalAmount)"
     }
 }
 
@@ -71,13 +84,13 @@ class NewInvoiceController: UIViewController {
 
 extension NewInvoiceController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let viewModel = viewModel else { return 0 }
-        return viewModel.items.count
+        guard let invoice = viewModel?.invoice else { return 0 }
+        return invoice.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ItemCell
-        guard let item = viewModel?.items[indexPath.item] else { return UITableViewCell()}
+        guard let item = viewModel?.invoice.items[indexPath.item] else { return UITableViewCell()}
         cell.configure(item: item)
         return cell
     }
@@ -96,7 +109,7 @@ extension NewInvoiceController: AddItemControllerDelegate {
     }
 
     func addButtonPressed(item: Item) {
-        viewModel?.items.append(item)
+        viewModel?.invoice.items.append(item)
         DispatchQueue.main.async {
             self.setTotalAmountLabel()
             self.dismiss(animated: true, completion: nil)

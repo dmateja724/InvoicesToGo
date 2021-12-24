@@ -59,7 +59,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZ8-tJ-vDe">
                     <rect key="frame" x="166" y="134" width="82" height="31"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="tinted" title="Add Item">
+                    <buttonConfiguration key="configuration" style="gray" title="Add Item">
                         <color key="baseForegroundColor" systemColor="linkColor"/>
                     </buttonConfiguration>
                     <connections>
@@ -130,6 +130,7 @@
                 <constraint firstItem="WZ8-tJ-vDe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="veo-d7-dlI"/>
                 <constraint firstItem="bA0-Qs-FRt" firstAttribute="top" secondItem="WZ8-tJ-vDe" secondAttribute="bottom" constant="50" id="vnI-MN-yi7"/>
             </constraints>
+            <nil key="simulatedTopBarMetrics"/>
             <point key="canvasLocation" x="131.8840579710145" y="131.91964285714286"/>
         </view>
     </objects>

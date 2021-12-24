@@ -13,8 +13,13 @@ struct Item {
     var rate: Double
 }
 
-struct NewInvoiceViewModel {
+struct Invoice {
     var invoiceNumber: Int
     var date: String
     var items: [Item]
+    var totalAmount: Double
+}
+
+struct NewInvoiceViewModel {
+    var invoice: Invoice
 }

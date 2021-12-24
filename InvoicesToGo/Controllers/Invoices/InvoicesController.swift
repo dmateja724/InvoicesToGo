@@ -11,7 +11,8 @@ class InvoicesController: UIViewController {
     // MARK: - Properties
 
     @IBOutlet var tableView: UITableView!
-
+    var invoices = [Invoice]()
+    
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -33,7 +34,9 @@ class InvoicesController: UIViewController {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
-        viewController.viewModel = NewInvoiceViewModel(invoiceNumber: 1, date: dateFormatter.string(from: date), items: [Item]())
+        let newInvoice = Invoice(invoiceNumber: 1, date: dateFormatter.string(from: date), items: [Item](), totalAmount: 0.0)
+        viewController.viewModel = NewInvoiceViewModel(invoice: newInvoice)
+        viewController.delegate = self
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
@@ -42,7 +45,7 @@ class InvoicesController: UIViewController {
 
 extension InvoicesController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        invoices.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,3 +56,12 @@ extension InvoicesController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension InvoicesController: UITableViewDelegate {}
+
+extension InvoicesController: NewInvoiceControllerDelegate {
+    func saveInvoicePressed(invoice: Invoice) {
+        invoices.append(invoice)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+}
