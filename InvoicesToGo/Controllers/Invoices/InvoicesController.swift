@@ -11,6 +11,8 @@ class InvoicesController: UIViewController {
     // MARK: - Properties
 
     @IBOutlet var tableView: UITableView!
+    
+    private let reuseIdentifier = "InvoiceCell"
     var invoices = [Invoice]()
     
     // MARK: - Lifecycle
@@ -25,9 +27,15 @@ class InvoicesController: UIViewController {
     func configure() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellReuseIdentifier: reuseIdentifier)
+        tableView.rowHeight = 72
+        
+        let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(pressedCreateInvoiceButton))
+        barButtonItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+        navigationItem.rightBarButtonItem = barButtonItem
     }
-
-    @IBAction func pressedCreateInvoiceButton(_ sender: Any) {
+    
+    @objc func pressedCreateInvoiceButton() {
         let viewController = NewInvoiceController()
         // TODO: - dynamically set invoice number
         // TODO: - move date stuff to extension
@@ -49,13 +57,19 @@ extension InvoicesController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! InvoiceCell
+        cell.configure()
+        return cell
     }
 }
 
 // MARK: - UITableViewDelegate
 
-extension InvoicesController: UITableViewDelegate {}
+extension InvoicesController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
 
 extension InvoicesController: NewInvoiceControllerDelegate {
     func saveInvoicePressed(invoice: Invoice) {

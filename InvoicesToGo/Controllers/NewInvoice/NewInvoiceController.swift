@@ -19,7 +19,7 @@ class NewInvoiceController: UIViewController {
     @IBOutlet var invoiceNumberLabel: UILabel!
     @IBOutlet weak var totalAmountLabel: UILabel!
     
-    let reuseIdentifier = "ItemCell"
+    private let reuseIdentifier = "ItemCell"
     weak var delegate: NewInvoiceControllerDelegate?
     var viewModel: NewInvoiceViewModel? {
         didSet {

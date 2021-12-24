@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4917710F2774089100D90BC4 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4917710D2774089100D90BC4 /* ItemCell.swift */; };
 		491771102774089100D90BC4 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4917710E2774089100D90BC4 /* ItemCell.xib */; };
+		494037C32775718600CCCD4C /* InvoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494037C12775718600CCCD4C /* InvoiceCell.swift */; };
+		494037C42775718600CCCD4C /* InvoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494037C22775718600CCCD4C /* InvoiceCell.xib */; };
 		495C666B2772C76300C2676F /* NewInvoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C666A2772C76300C2676F /* NewInvoiceViewModel.swift */; };
 		495C666F2772CDE900C2676F /* AddItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C666D2772CDE900C2676F /* AddItemController.swift */; };
 		495C66702772CDE900C2676F /* AddItemController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495C666E2772CDE900C2676F /* AddItemController.xib */; };
@@ -28,6 +30,8 @@
 		14F16E55FB124FD6A27EEB3C /* Pods-InvoicesToGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InvoicesToGo.debug.xcconfig"; path = "Target Support Files/Pods-InvoicesToGo/Pods-InvoicesToGo.debug.xcconfig"; sourceTree = "<group>"; };
 		4917710D2774089100D90BC4 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		4917710E2774089100D90BC4 /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
+		494037C12775718600CCCD4C /* InvoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceCell.swift; sourceTree = "<group>"; };
+		494037C22775718600CCCD4C /* InvoiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceCell.xib; sourceTree = "<group>"; };
 		495C666A2772C76300C2676F /* NewInvoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvoiceViewModel.swift; sourceTree = "<group>"; };
 		495C666D2772CDE900C2676F /* AddItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemController.swift; sourceTree = "<group>"; };
 		495C666E2772CDE900C2676F /* AddItemController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItemController.xib; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 		4917710B2774085E00D90BC4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				494037C02775716C00CCCD4C /* InvoiceCell */,
 				4917710C2774086600D90BC4 /* ItemCell */,
 			);
 			path = Views;
@@ -84,6 +89,15 @@
 			path = ItemCell;
 			sourceTree = "<group>";
 		};
+		494037C02775716C00CCCD4C /* InvoiceCell */ = {
+			isa = PBXGroup;
+			children = (
+				494037C12775718600CCCD4C /* InvoiceCell.swift */,
+				494037C22775718600CCCD4C /* InvoiceCell.xib */,
+			);
+			path = InvoiceCell;
+			sourceTree = "<group>";
+		};
 		495C66692772C75900C2676F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,13 +106,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		495C666C2772CCD100C2676F /* AddItemController */ = {
+		495C666C2772CCD100C2676F /* AddItem */ = {
 			isa = PBXGroup;
 			children = (
 				495C666D2772CDE900C2676F /* AddItemController.swift */,
 				495C666E2772CDE900C2676F /* AddItemController.xib */,
 			);
-			path = AddItemController;
+			path = AddItem;
 			sourceTree = "<group>";
 		};
 		496A474A277179BD00DF8DE5 = {
@@ -138,7 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				496A477227717C8C00DF8DE5 /* MainTabController.swift */,
-				495C666C2772CCD100C2676F /* AddItemController */,
+				495C666C2772CCD100C2676F /* AddItem */,
 				496A477427717F7400DF8DE5 /* NewInvoice */,
 				496A477127717AA500DF8DE5 /* Invoices */,
 			);
@@ -235,6 +249,7 @@
 				496A4763277179BE00DF8DE5 /* LaunchScreen.storyboard in Resources */,
 				496A4760277179BE00DF8DE5 /* Assets.xcassets in Resources */,
 				491771102774089100D90BC4 /* ItemCell.xib in Resources */,
+				494037C42775718600CCCD4C /* InvoiceCell.xib in Resources */,
 				495C66702772CDE900C2676F /* AddItemController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +293,7 @@
 				496A4759277179BD00DF8DE5 /* SceneDelegate.swift in Sources */,
 				496A477327717C8C00DF8DE5 /* MainTabController.swift in Sources */,
 				496A476F27717A6000DF8DE5 /* InvoicesController.swift in Sources */,
+				494037C32775718600CCCD4C /* InvoiceCell.swift in Sources */,
 				496A477727717F8800DF8DE5 /* NewInvoiceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
