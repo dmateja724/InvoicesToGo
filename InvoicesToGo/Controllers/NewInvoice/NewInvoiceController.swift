@@ -27,7 +27,6 @@ class NewInvoiceController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        setTotal()
     }
     
     //MARK: - Actions
@@ -52,17 +51,19 @@ class NewInvoiceController: UIViewController {
         
         dateLabel.text = viewModel.date
         invoiceNumberLabel.text = String(viewModel.invoiceNumber)
+        setTotalAmountLabel()
     }
     
-    func setTotal() {
+    func setTotalAmountLabel() {
         guard let viewModel = viewModel else { return }
         var total = 0.0
 
-        viewModel.items.map { item in
+        for item in viewModel.items {
             total += item.rate * Double(item.quatity)
         }
         
-        totalAmountLabel.text = "$\(total)"
+        let totalCost = String(format: "%.2f", total)
+        totalAmountLabel.text = "$\(totalCost)"
     }
 }
 
@@ -77,11 +78,7 @@ extension NewInvoiceController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ItemCell
         guard let item = viewModel?.items[indexPath.item] else { return UITableViewCell()}
-        
-        cell.itemNameLabel.text = item.name
-        cell.qtyAmountLabel.text = "\(item.quatity) x $\(item.rate)"
-        cell.totalCostLabel.text = "$\(Double(item.quatity) * item.rate)"
-        
+        cell.configure(item: item)
         return cell
     }
 }
@@ -101,7 +98,7 @@ extension NewInvoiceController: AddItemControllerDelegate {
     func addButtonPressed(item: Item) {
         viewModel?.items.append(item)
         DispatchQueue.main.async {
-            self.setTotal()
+            self.setTotalAmountLabel()
             self.dismiss(animated: true, completion: nil)
         }
     }
