@@ -21,7 +21,10 @@ class MainTabController: UITabBarController {
         view.backgroundColor = .white
         tabBar.tintColor = .link
 
-        let invoices = templateNavigationController(unselectedImage: UIImage(named: "invoices_outline")!, selectedImage: UIImage(named: "invoices_fill")!, rootViewController: InvoicesController())
+        let invoicesController = InvoicesController()
+        let invoicesViewModel = InvoicesViewModel()
+        invoicesController.viewModel = invoicesViewModel
+        let invoices = templateNavigationController(unselectedImage: UIImage(named: "invoices_outline")!, selectedImage: UIImage(named: "invoices_fill")!, rootViewController: invoicesController)
 
         viewControllers = [invoices]
 
@@ -32,7 +35,7 @@ class MainTabController: UITabBarController {
             tabBar.standardAppearance = appearance
             tabBar.scrollEdgeAppearance = tabBar.standardAppearance
         }
-        
+
         tabBar.isHidden = true
     }
 

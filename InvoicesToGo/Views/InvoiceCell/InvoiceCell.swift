@@ -10,6 +10,12 @@ import UIKit
 class InvoiceCell: UITableViewCell {
     // MARK: - Properties
 
+    @IBOutlet var invoiceHeaderLabel: UILabel!
+    @IBOutlet var invoiceInfoLabel: UILabel!
+    @IBOutlet var totalAmountLabel: UILabel!
+    @IBOutlet var checkMarkImage: UIImageView!
+    @IBOutlet var printButton: UIButton!
+
     // MARK: - Lifecycle
 
     override func awakeFromNib() {
@@ -19,12 +25,20 @@ class InvoiceCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
+
+    // MARK: - Helpers
+
     @IBAction func printInvoicePressed(_ sender: UIButton) {
         print("print invoice here")
     }
-    
-    func configure() {
-        
+
+    // MARK: - Helpers
+
+    func configure(invoice: Invoice) {
+        let totalAmount = String(format: "%.2f", invoice.totalAmount)
+
+        invoiceHeaderLabel.text = "#\(invoice.invoiceNumber): Acme Co."
+        invoiceInfoLabel.text = invoice.date
+        totalAmountLabel.text = "$\(totalAmount)"
     }
 }

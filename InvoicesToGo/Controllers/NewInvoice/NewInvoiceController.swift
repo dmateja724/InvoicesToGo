@@ -13,12 +13,12 @@ protocol NewInvoiceControllerDelegate: AnyObject {
 
 class NewInvoiceController: UIViewController {
     // MARK: - Properties
-    
+
     @IBOutlet var tableView: UITableView!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var invoiceNumberLabel: UILabel!
-    @IBOutlet weak var totalAmountLabel: UILabel!
-    
+    @IBOutlet var totalAmountLabel: UILabel!
+
     private let reuseIdentifier = "ItemCell"
     weak var delegate: NewInvoiceControllerDelegate?
     var viewModel: NewInvoiceViewModel? {
@@ -26,55 +26,56 @@ class NewInvoiceController: UIViewController {
             tableView?.reloadData()
         }
     }
-    
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
-    
-    //MARK: - Actions
-    
+
+    // MARK: - Actions
+
     @IBAction func addItemPressed(_ sender: UIButton) {
         let addItemVC = AddItemController()
         addItemVC.delegate = self
         present(addItemVC, animated: true, completion: nil)
     }
-    
+
     @objc func saveTapped() {
         guard let invoice = viewModel?.invoice else { return }
         navigationController?.popViewController(animated: true)
         delegate?.saveInvoicePressed(invoice: invoice)
     }
-    
+
     // MARK: - Helpers
-    
+
     func configure() {
         guard let invoice = viewModel?.invoice else { return }
-        
+
         navigationItem.title = "New Invoice"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveTapped))
         tableView.delegate = self
         tableView.dataSource = self
-        
+
         tableView.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellReuseIdentifier: reuseIdentifier)
         tableView.rowHeight = 65
-        
+
         dateLabel.text = invoice.date
         invoiceNumberLabel.text = String(invoice.invoiceNumber)
-        setTotalAmountLabel()
+        setTotalAmount()
     }
-    
-    func setTotalAmountLabel() {
-        guard var invoice = viewModel?.invoice else { return }
+
+    func setTotalAmount() {
+        guard let invoice = viewModel?.invoice else { return }
         var total = 0.0
 
         for item in invoice.items {
             total += item.rate * Double(item.quatity)
         }
-        
-        invoice.totalAmount = total
+
+        viewModel?.invoice.totalAmount = total
+
         let totalAmount = String(format: "%.2f", total)
         totalAmountLabel.text = "$\(totalAmount)"
     }
@@ -87,10 +88,10 @@ extension NewInvoiceController: UITableViewDataSource {
         guard let invoice = viewModel?.invoice else { return 0 }
         return invoice.items.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ItemCell
-        guard let item = viewModel?.invoice.items[indexPath.item] else { return UITableViewCell()}
+        guard let item = viewModel?.invoice.items[indexPath.item] else { return UITableViewCell() }
         cell.configure(item: item)
         return cell
     }
@@ -98,8 +99,11 @@ extension NewInvoiceController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 
-extension NewInvoiceController: UITableViewDelegate {}
-
+extension NewInvoiceController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
 
 // MARK: - AddItemControllerDelegate
 
@@ -110,8 +114,8 @@ extension NewInvoiceController: AddItemControllerDelegate {
 
     func addButtonPressed(item: Item) {
         viewModel?.invoice.items.append(item)
+        setTotalAmount()
         DispatchQueue.main.async {
-            self.setTotalAmountLabel()
             self.dismiss(animated: true, completion: nil)
         }
     }

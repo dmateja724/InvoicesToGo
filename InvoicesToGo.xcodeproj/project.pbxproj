@@ -23,6 +23,9 @@
 		496A477327717C8C00DF8DE5 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A477227717C8C00DF8DE5 /* MainTabController.swift */; };
 		496A477727717F8800DF8DE5 /* NewInvoiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496A477527717F8800DF8DE5 /* NewInvoiceController.swift */; };
 		496A477827717F8800DF8DE5 /* NewInvoiceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496A477627717F8800DF8DE5 /* NewInvoiceController.xib */; };
+		497A646D2777A8F40088BC30 /* InvoicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A646C2777A8F40088BC30 /* InvoicesViewModel.swift */; };
+		497A646F2777AF910088BC30 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A646E2777AF910088BC30 /* Invoice.swift */; };
+		497A64712777AFA40088BC30 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A64702777AFA40088BC30 /* Item.swift */; };
 		DF3B89C0B3B7CD9841FBA5F4 /* Pods_InvoicesToGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0275457120A331F322505D /* Pods_InvoicesToGo.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +49,9 @@
 		496A477227717C8C00DF8DE5 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		496A477527717F8800DF8DE5 /* NewInvoiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInvoiceController.swift; sourceTree = "<group>"; };
 		496A477627717F8800DF8DE5 /* NewInvoiceController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewInvoiceController.xib; sourceTree = "<group>"; };
+		497A646C2777A8F40088BC30 /* InvoicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicesViewModel.swift; sourceTree = "<group>"; };
+		497A646E2777AF910088BC30 /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
+		497A64702777AFA40088BC30 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		6C4F789BEBA85BC182E224B6 /* Pods-InvoicesToGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InvoicesToGo.release.xcconfig"; path = "Target Support Files/Pods-InvoicesToGo/Pods-InvoicesToGo.release.xcconfig"; sourceTree = "<group>"; };
 		CB0275457120A331F322505D /* Pods_InvoicesToGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InvoicesToGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -102,6 +108,9 @@
 			isa = PBXGroup;
 			children = (
 				495C666A2772C76300C2676F /* NewInvoiceViewModel.swift */,
+				497A646C2777A8F40088BC30 /* InvoicesViewModel.swift */,
+				497A646E2777AF910088BC30 /* Invoice.swift */,
+				497A64702777AFA40088BC30 /* Item.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -290,11 +299,14 @@
 				495C666F2772CDE900C2676F /* AddItemController.swift in Sources */,
 				496A4757277179BD00DF8DE5 /* AppDelegate.swift in Sources */,
 				495C666B2772C76300C2676F /* NewInvoiceViewModel.swift in Sources */,
+				497A64712777AFA40088BC30 /* Item.swift in Sources */,
 				496A4759277179BD00DF8DE5 /* SceneDelegate.swift in Sources */,
 				496A477327717C8C00DF8DE5 /* MainTabController.swift in Sources */,
 				496A476F27717A6000DF8DE5 /* InvoicesController.swift in Sources */,
+				497A646D2777A8F40088BC30 /* InvoicesViewModel.swift in Sources */,
 				494037C32775718600CCCD4C /* InvoiceCell.swift in Sources */,
 				496A477727717F8800DF8DE5 /* NewInvoiceController.swift in Sources */,
+				497A646F2777AF910088BC30 /* Invoice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -34,7 +34,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iv4-Zh-pAd">
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iv4-Zh-pAd">
                         <rect key="frame" x="189" y="36.5" width="18.5" height="16.5"/>
                     </imageView>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySG-yf-jgE">
@@ -60,6 +60,13 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="checkMarkImage" destination="iv4-Zh-pAd" id="ZKg-Di-9Eu"/>
+                <outlet property="invoiceHeaderLabel" destination="7Lq-L4-raH" id="Dav-vo-4FW"/>
+                <outlet property="invoiceInfoLabel" destination="o3o-zf-NdR" id="Ixo-ml-6wx"/>
+                <outlet property="printButton" destination="ySG-yf-jgE" id="hRg-4k-ebR"/>
+                <outlet property="totalAmountLabel" destination="C82-y6-qef" id="gyc-xe-oYP"/>
+            </connections>
             <point key="canvasLocation" x="182.60869565217394" y="138.95089285714286"/>
         </tableViewCell>
     </objects>
