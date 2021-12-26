@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InvoicesController" customModule="InvoicesToGo" customModuleProvider="target">
             <connections>
+                <outlet property="noInvoicesLabel" destination="ehy-gh-Gfx" id="GHH-uc-cFn"/>
                 <outlet property="tableView" destination="Bqs-0u-jGU" id="Orc-qE-Sa3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,10 +26,16 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Bqs-0u-jGU">
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Bqs-0u-jGU">
                     <rect key="frame" x="20" y="138" width="374" height="675"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no invoices." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehy-gh-Gfx">
+                    <rect key="frame" x="92" y="433" width="230" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -37,7 +44,9 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Bqs-0u-jGU" secondAttribute="bottom" id="CsP-tw-ciJ"/>
                 <constraint firstItem="v8A-tK-0sh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="G7L-Ar-hlp"/>
                 <constraint firstItem="Bqs-0u-jGU" firstAttribute="top" secondItem="v8A-tK-0sh" secondAttribute="bottom" constant="8" symbolic="YES" id="Vd6-i3-6U1"/>
+                <constraint firstItem="ehy-gh-Gfx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="X77-Ic-wiH"/>
                 <constraint firstItem="v8A-tK-0sh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="aDx-KS-kzB"/>
+                <constraint firstItem="ehy-gh-Gfx" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="hd6-bs-LbF"/>
                 <constraint firstItem="Bqs-0u-jGU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="oYy-B3-8SV"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>

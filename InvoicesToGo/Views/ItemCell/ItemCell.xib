@@ -18,13 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSU-Vc-ivS">
-                        <rect key="frame" x="15" y="10" width="83" height="21"/>
+                        <rect key="frame" x="10" y="10" width="83" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 x $50.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZk-ZX-lMk">
-                        <rect key="frame" x="15" y="34" width="82" height="21"/>
+                        <rect key="frame" x="10" y="34" width="82" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" systemColor="systemGrayColor"/>
                         <nil key="highlightedColor"/>
@@ -37,9 +37,9 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="rSU-Vc-ivS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Grw-Iq-LNf"/>
+                    <constraint firstItem="rSU-Vc-ivS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Grw-Iq-LNf"/>
                     <constraint firstItem="rSU-Vc-ivS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="IBq-0O-sl9"/>
-                    <constraint firstItem="KZk-ZX-lMk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="dGo-U1-iak"/>
+                    <constraint firstItem="KZk-ZX-lMk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="dGo-U1-iak"/>
                     <constraint firstAttribute="bottom" secondItem="KZk-ZX-lMk" secondAttribute="bottom" constant="10" id="e5k-Pb-gUb"/>
                     <constraint firstAttribute="bottom" secondItem="0TA-yP-m6I" secondAttribute="bottom" constant="10" id="yAb-cx-Zvv"/>
                     <constraint firstAttribute="trailing" secondItem="0TA-yP-m6I" secondAttribute="trailing" constant="15" id="yqU-iA-Odw"/>

@@ -73,7 +73,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bA0-Qs-FRt">
-                    <rect key="frame" x="0.0" y="215" width="394" height="564"/>
+                    <rect key="frame" x="10" y="215" width="394" height="564"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5o-Dt-btu">
@@ -110,7 +110,7 @@
                 <constraint firstItem="WZ8-tJ-vDe" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="90" id="1s1-rr-nha"/>
                 <constraint firstItem="rHy-oN-8rs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5Uq-Gs-xZz"/>
                 <constraint firstItem="z5o-Dt-btu" firstAttribute="firstBaseline" secondItem="V6I-RL-ijP" secondAttribute="firstBaseline" id="7X1-WR-xah"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bA0-Qs-FRt" secondAttribute="trailing" constant="20" id="895-eg-2MD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bA0-Qs-FRt" secondAttribute="trailing" constant="10" id="895-eg-2MD"/>
                 <constraint firstItem="KVU-2z-pXl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="25" id="8hu-ik-thK"/>
                 <constraint firstItem="IOQ-i4-bec" firstAttribute="top" secondItem="KVU-2z-pXl" secondAttribute="bottom" constant="60" id="B4S-lv-PvC"/>
                 <constraint firstItem="KVU-2z-pXl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="LVL-GB-6NR"/>
@@ -125,7 +125,7 @@
                 <constraint firstItem="TxK-Lr-N1u" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="bv3-r2-Bz1"/>
                 <constraint firstItem="V6I-RL-ijP" firstAttribute="top" secondItem="rHy-oN-8rs" secondAttribute="bottom" constant="20" id="c8d-It-RPX"/>
                 <constraint firstItem="bA0-Qs-FRt" firstAttribute="top" secondItem="TxK-Lr-N1u" secondAttribute="bottom" id="gji-Lu-vzI"/>
-                <constraint firstItem="bA0-Qs-FRt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hZM-wN-1Kb"/>
+                <constraint firstItem="bA0-Qs-FRt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="hZM-wN-1Kb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="z5o-Dt-btu" secondAttribute="trailing" constant="20" id="ugk-Ph-Rue"/>
                 <constraint firstItem="WZ8-tJ-vDe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="veo-d7-dlI"/>
                 <constraint firstItem="bA0-Qs-FRt" firstAttribute="top" secondItem="WZ8-tJ-vDe" secondAttribute="bottom" constant="50" id="vnI-MN-yi7"/>
