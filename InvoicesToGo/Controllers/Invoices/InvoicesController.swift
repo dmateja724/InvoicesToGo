@@ -11,15 +11,15 @@ class InvoicesController: UIViewController {
     // MARK: - Properties
 
     @IBOutlet var tableView: UITableView!
-    @IBOutlet weak var noInvoicesLabel: UILabel!
-    
+    @IBOutlet var noInvoicesLabel: UILabel!
+
     private let reuseIdentifier = "InvoiceCell"
     var viewModel: InvoicesViewModel? {
         didSet {
             guard let viewModel = viewModel else {
                 return
             }
-            
+
             tableView?.isHidden = viewModel.invoices.isEmpty
             noInvoicesLabel?.isHidden = !viewModel.invoices.isEmpty
         }

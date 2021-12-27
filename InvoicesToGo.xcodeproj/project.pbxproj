@@ -35,6 +35,9 @@
 		497A646D2777A8F40088BC30 /* InvoicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A646C2777A8F40088BC30 /* InvoicesViewModel.swift */; };
 		497A646F2777AF910088BC30 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A646E2777AF910088BC30 /* Invoice.swift */; };
 		497A64712777AFA40088BC30 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A64702777AFA40088BC30 /* Item.swift */; };
+		49C98BDA277A43E300E9F0A3 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C98BD8277A43E300E9F0A3 /* ResetPasswordController.swift */; };
+		49C98BDB277A43E300E9F0A3 /* ResetPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C98BD9277A43E300E9F0A3 /* ResetPasswordController.xib */; };
+		49C98BDE277A46C100E9F0A3 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C98BDD277A46C100E9F0A3 /* UIViewControllerExtension.swift */; };
 		DF3B89C0B3B7CD9841FBA5F4 /* Pods_InvoicesToGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0275457120A331F322505D /* Pods_InvoicesToGo.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +73,9 @@
 		497A646C2777A8F40088BC30 /* InvoicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicesViewModel.swift; sourceTree = "<group>"; };
 		497A646E2777AF910088BC30 /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
 		497A64702777AFA40088BC30 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		49C98BD8277A43E300E9F0A3 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
+		49C98BD9277A43E300E9F0A3 /* ResetPasswordController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordController.xib; sourceTree = "<group>"; };
+		49C98BDD277A46C100E9F0A3 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		6C4F789BEBA85BC182E224B6 /* Pods-InvoicesToGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InvoicesToGo.release.xcconfig"; path = "Target Support Files/Pods-InvoicesToGo/Pods-InvoicesToGo.release.xcconfig"; sourceTree = "<group>"; };
 		CB0275457120A331F322505D /* Pods_InvoicesToGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InvoicesToGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,6 +104,7 @@
 		4911E3402779437A003D026D /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				49C98BD7277A43C900E9F0A3 /* ResetPasswordController */,
 				4911E34827794C8B003D026D /* SignUp */,
 				4911E3412779438D003D026D /* Login */,
 			);
@@ -171,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				4958A21A277A1ACF0076F2DD /* Constants.swift */,
+				49C98BDC277A469D00E9F0A3 /* Extensions */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -261,6 +269,23 @@
 			path = NewInvoice;
 			sourceTree = "<group>";
 		};
+		49C98BD7277A43C900E9F0A3 /* ResetPasswordController */ = {
+			isa = PBXGroup;
+			children = (
+				49C98BD8277A43E300E9F0A3 /* ResetPasswordController.swift */,
+				49C98BD9277A43E300E9F0A3 /* ResetPasswordController.xib */,
+			);
+			path = ResetPasswordController;
+			sourceTree = "<group>";
+		};
+		49C98BDC277A469D00E9F0A3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				49C98BDD277A46C100E9F0A3 /* UIViewControllerExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		EB19DC5D1DBF9BF385F2D5BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +356,7 @@
 			files = (
 				4911E34C27794CC3003D026D /* SignUpController.xib in Resources */,
 				496A477827717F8800DF8DE5 /* NewInvoiceController.xib in Resources */,
+				49C98BDB277A43E300E9F0A3 /* ResetPasswordController.xib in Resources */,
 				4911E345277943C6003D026D /* LoginController.xib in Resources */,
 				496A477027717A6000DF8DE5 /* InvoicesController.xib in Resources */,
 				496A4763277179BE00DF8DE5 /* LaunchScreen.storyboard in Resources */,
@@ -403,7 +429,9 @@
 				496A4759277179BD00DF8DE5 /* SceneDelegate.swift in Sources */,
 				496A477327717C8C00DF8DE5 /* MainTabController.swift in Sources */,
 				496A476F27717A6000DF8DE5 /* InvoicesController.swift in Sources */,
+				49C98BDE277A46C100E9F0A3 /* UIViewControllerExtension.swift in Sources */,
 				497A646D2777A8F40088BC30 /* InvoicesViewModel.swift in Sources */,
+				49C98BDA277A43E300E9F0A3 /* ResetPasswordController.swift in Sources */,
 				494037C32775718600CCCD4C /* InvoiceCell.swift in Sources */,
 				496A477727717F8800DF8DE5 /* NewInvoiceController.swift in Sources */,
 				497A646F2777AF910088BC30 /* Invoice.swift in Sources */,

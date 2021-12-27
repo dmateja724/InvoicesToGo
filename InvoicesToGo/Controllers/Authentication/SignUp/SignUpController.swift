@@ -15,7 +15,7 @@ class SignUpController: UIViewController {
     @IBOutlet var companyNameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    
+
     weak var delegate: AuthenticationDelegate?
 
     // MARK: - Lifecycle
@@ -23,9 +23,9 @@ class SignUpController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    //MARK: - Actions
-    
+
+    // MARK: - Actions
+
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
         guard let firstName = firstNameTextField.text,
               let lasName = lastNameTextField.text,
@@ -35,7 +35,7 @@ class SignUpController: UIViewController {
         else {
             return
         }
-        
+
         let credentials = AuthCredentials(firstName: firstName, lastName: lasName, companyName: companyName, email: email, password: password)
 
         AuthService.registerUser(withCredential: credentials) { error in

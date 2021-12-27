@@ -16,7 +16,7 @@ class LoginController: UIViewController {
 
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    
+
     weak var delegate: AuthenticationDelegate?
 
     // MARK: - Lifecycle
@@ -33,7 +33,7 @@ class LoginController: UIViewController {
         else {
             return
         }
-        
+
         AuthService.logUserIn(email: email, password: password) { _, error in
             if let error = error {
                 print("DEBUG: Fialed to log user in \(error.localizedDescription)")
@@ -43,12 +43,25 @@ class LoginController: UIViewController {
         }
     }
 
-    @IBAction func forgotPasswordButtonPressed(_ sender: UIButton) {
-        print("DEBUG: forgot password button pressed")
+    @IBAction func resetPasswordButtonPressed(_ sender: UIButton) {
+        let viewController = ResetPasswordController()
+        viewController.delegate = self
+        viewController.email = emailTextField.text
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
         let viewController = SignUpController()
+        viewController.delegate = delegate
         navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+// MARK: - ResetPasswordControllerDelegate
+
+extension LoginController: ResetPasswordControllerDelegate {
+    func controllerDidSendResetPasswordLink(_ controller: ResetPasswordController) {
+        navigationController?.popViewController(animated: true)
+        showMessage(withTitle: "Success", message: "We sent a link to your email to reset your password.")
     }
 }

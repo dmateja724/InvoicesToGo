@@ -13,7 +13,7 @@ struct User {
     let firstName: String
     let lastName: String
     let companyName: String
-    
+
     init(dictionary: [String: Any]) {
         uid = dictionary["uid"] as? String ?? ""
         email = dictionary["email"] as? String ?? ""

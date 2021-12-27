@@ -10,7 +10,7 @@ import Foundation
 struct InvoicesViewModel {
     let user: User
     var invoices = [Invoice]()
-    
+
     init(user: User) {
         self.user = user
     }
