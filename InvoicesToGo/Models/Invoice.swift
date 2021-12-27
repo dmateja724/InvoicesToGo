@@ -12,4 +12,5 @@ struct Invoice {
     var date: String
     var items = [Item]()
     var totalAmount = 0.0
+    var companyName: String
 }

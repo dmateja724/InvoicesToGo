@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol AuthenticationDelegate: AnyObject {
+    func authenticationDidComplete()
+}
+
 class LoginController: UIViewController {
     // MARK: - Properties
 
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    
+    weak var delegate: AuthenticationDelegate?
 
     // MARK: - Lifecycle
 
@@ -22,7 +28,19 @@ class LoginController: UIViewController {
     // MARK: - Actions
 
     @IBAction func signInButtonPressed(_ sender: UIButton) {
-        print("DEBUG: sign in button pressed")
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text
+        else {
+            return
+        }
+        
+        AuthService.logUserIn(email: email, password: password) { _, error in
+            if let error = error {
+                print("DEBUG: Fialed to log user in \(error.localizedDescription)")
+                return
+            }
+            self.delegate?.authenticationDidComplete()
+        }
     }
 
     @IBAction func forgotPasswordButtonPressed(_ sender: UIButton) {

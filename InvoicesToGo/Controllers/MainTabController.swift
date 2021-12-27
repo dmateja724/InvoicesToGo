@@ -16,7 +16,7 @@ class MainTabController: UITabBarController {
             guard let user = user else {
                 return
             }
-            configureViewControllers()
+            configureViewControllers(user: user)
         }
     }
 
@@ -27,10 +27,18 @@ class MainTabController: UITabBarController {
     
     //MARK: - API
     
+    func fetchUser() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        UserService.fetchUser(withUid: uid) { user in
+            self.user = user
+        }
+    }
+    
     func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
                 let controller = LoginController()
+                controller.delegate = self
                 let nav = UINavigationController(rootViewController: controller)
                 nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: true, completion: nil)
@@ -40,12 +48,12 @@ class MainTabController: UITabBarController {
 
     // MARK: - Helpers
 
-    func configureViewControllers() {
+    func configureViewControllers(user: User) {
         view.backgroundColor = .white
         tabBar.tintColor = .link
 
         let invoicesController = InvoicesController()
-        let invoicesViewModel = InvoicesViewModel()
+        let invoicesViewModel = InvoicesViewModel(user: user)
         invoicesController.viewModel = invoicesViewModel
         let invoices = templateNavigationController(unselectedImage: UIImage(named: "invoices_outline")!, selectedImage: UIImage(named: "invoices_fill")!, rootViewController: invoicesController)
 
@@ -67,5 +75,14 @@ class MainTabController: UITabBarController {
         nav.tabBarItem.image = unselectedImage
         nav.tabBarItem.selectedImage = selectedImage
         return nav
+    }
+}
+
+// MARK: - AuthenticationDelegate
+
+extension MainTabController: AuthenticationDelegate {
+    func authenticationDidComplete() {
+        fetchUser()
+        dismiss(animated: true, completion: nil)
     }
 }
