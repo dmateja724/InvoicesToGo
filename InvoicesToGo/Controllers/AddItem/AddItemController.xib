@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLj-Fv-bXq">
-                    <rect key="frame" x="339" y="54" width="60" height="37"/>
+                    <rect key="frame" x="354" y="54" width="60" height="37"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain">
                         <attributedString key="attributedTitle">
@@ -38,7 +38,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgB-iO-Uwm">
-                    <rect key="frame" x="15" y="54" width="86.5" height="37"/>
+                    <rect key="frame" x="0.0" y="54" width="86.5" height="37"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain">
                         <attributedString key="attributedTitle">
@@ -117,7 +117,7 @@
                 <constraint firstItem="sXL-B8-L9K" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="D3R-yf-muL"/>
                 <constraint firstItem="GAq-FN-HkE" firstAttribute="top" secondItem="sXL-B8-L9K" secondAttribute="bottom" constant="30" id="DQU-Wp-MRa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GAq-FN-HkE" secondAttribute="trailing" constant="20" id="Grm-3p-61D"/>
-                <constraint firstItem="qgB-iO-Uwm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="Hlf-Zo-BwT"/>
+                <constraint firstItem="qgB-iO-Uwm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Hlf-Zo-BwT"/>
                 <constraint firstItem="6No-3u-B3z" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LQU-Vq-567"/>
                 <constraint firstItem="qgB-iO-Uwm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="MoD-gJ-sfO"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lnS-Sb-Ixu" secondAttribute="trailing" constant="200" id="Rzc-HN-d3W"/>
@@ -126,7 +126,7 @@
                 <constraint firstItem="lnS-Sb-Ixu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="c7e-RE-jiW"/>
                 <constraint firstItem="6No-3u-B3z" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="fbQ-Vk-rfF"/>
                 <constraint firstItem="sXL-B8-L9K" firstAttribute="top" secondItem="6No-3u-B3z" secondAttribute="bottom" constant="30" id="nla-nG-O1f"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bLj-Fv-bXq" secondAttribute="trailing" constant="15" id="wii-3M-aSv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bLj-Fv-bXq" secondAttribute="trailing" id="wii-3M-aSv"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="131.91964285714286"/>
         </view>

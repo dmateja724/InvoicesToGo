@@ -6,4 +6,6 @@ target 'InvoicesToGo' do
   use_frameworks!
 
   # Pods for InvoicesToGo
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
 end

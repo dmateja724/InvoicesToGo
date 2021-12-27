@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4911E344277943C6003D026D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4911E342277943C6003D026D /* LoginController.swift */; };
+		4911E345277943C6003D026D /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4911E343277943C6003D026D /* LoginController.xib */; };
+		4911E34727794593003D026D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4911E34627794593003D026D /* User.swift */; };
+		4911E34B27794CC3003D026D /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4911E34927794CC3003D026D /* SignUpController.swift */; };
+		4911E34C27794CC3003D026D /* SignUpController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4911E34A27794CC3003D026D /* SignUpController.xib */; };
+		4911E34E27795184003D026D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4911E34D27795184003D026D /* GoogleService-Info.plist */; };
 		4917710F2774089100D90BC4 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4917710D2774089100D90BC4 /* ItemCell.swift */; };
 		491771102774089100D90BC4 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4917710E2774089100D90BC4 /* ItemCell.xib */; };
 		494037C32775718600CCCD4C /* InvoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494037C12775718600CCCD4C /* InvoiceCell.swift */; };
@@ -31,6 +37,12 @@
 
 /* Begin PBXFileReference section */
 		14F16E55FB124FD6A27EEB3C /* Pods-InvoicesToGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InvoicesToGo.debug.xcconfig"; path = "Target Support Files/Pods-InvoicesToGo/Pods-InvoicesToGo.debug.xcconfig"; sourceTree = "<group>"; };
+		4911E342277943C6003D026D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		4911E343277943C6003D026D /* LoginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginController.xib; sourceTree = "<group>"; };
+		4911E34627794593003D026D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4911E34927794CC3003D026D /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		4911E34A27794CC3003D026D /* SignUpController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpController.xib; sourceTree = "<group>"; };
+		4911E34D27795184003D026D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4917710D2774089100D90BC4 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		4917710E2774089100D90BC4 /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		494037C12775718600CCCD4C /* InvoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceCell.swift; sourceTree = "<group>"; };
@@ -77,6 +89,33 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4911E3402779437A003D026D /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				4911E34827794C8B003D026D /* SignUp */,
+				4911E3412779438D003D026D /* Login */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		4911E3412779438D003D026D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4911E342277943C6003D026D /* LoginController.swift */,
+				4911E343277943C6003D026D /* LoginController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		4911E34827794C8B003D026D /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				4911E34927794CC3003D026D /* SignUpController.swift */,
+				4911E34A27794CC3003D026D /* SignUpController.xib */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		4917710B2774085E00D90BC4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +150,7 @@
 				497A646C2777A8F40088BC30 /* InvoicesViewModel.swift */,
 				497A646E2777AF910088BC30 /* Invoice.swift */,
 				497A64702777AFA40088BC30 /* Item.swift */,
+				4911E34627794593003D026D /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -153,6 +193,7 @@
 				496A475F277179BE00DF8DE5 /* Assets.xcassets */,
 				496A4761277179BE00DF8DE5 /* LaunchScreen.storyboard */,
 				496A4764277179BE00DF8DE5 /* Info.plist */,
+				4911E34D27795184003D026D /* GoogleService-Info.plist */,
 			);
 			path = InvoicesToGo;
 			sourceTree = "<group>";
@@ -161,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				496A477227717C8C00DF8DE5 /* MainTabController.swift */,
+				4911E3402779437A003D026D /* Authentication */,
 				495C666C2772CCD100C2676F /* AddItem */,
 				496A477427717F7400DF8DE5 /* NewInvoice */,
 				496A477127717AA500DF8DE5 /* Invoices */,
@@ -205,6 +247,7 @@
 				496A474F277179BD00DF8DE5 /* Sources */,
 				496A4750277179BD00DF8DE5 /* Frameworks */,
 				496A4751277179BD00DF8DE5 /* Resources */,
+				F2094B78021C7C3F027E2E05 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,11 +296,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4911E34C27794CC3003D026D /* SignUpController.xib in Resources */,
 				496A477827717F8800DF8DE5 /* NewInvoiceController.xib in Resources */,
+				4911E345277943C6003D026D /* LoginController.xib in Resources */,
 				496A477027717A6000DF8DE5 /* InvoicesController.xib in Resources */,
 				496A4763277179BE00DF8DE5 /* LaunchScreen.storyboard in Resources */,
 				496A4760277179BE00DF8DE5 /* Assets.xcassets in Resources */,
 				491771102774089100D90BC4 /* ItemCell.xib in Resources */,
+				4911E34E27795184003D026D /* GoogleService-Info.plist in Resources */,
 				494037C42775718600CCCD4C /* InvoiceCell.xib in Resources */,
 				495C66702772CDE900C2676F /* AddItemController.xib in Resources */,
 			);
@@ -288,6 +334,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F2094B78021C7C3F027E2E05 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InvoicesToGo/Pods-InvoicesToGo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InvoicesToGo/Pods-InvoicesToGo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InvoicesToGo/Pods-InvoicesToGo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -298,8 +361,11 @@
 				4917710F2774089100D90BC4 /* ItemCell.swift in Sources */,
 				495C666F2772CDE900C2676F /* AddItemController.swift in Sources */,
 				496A4757277179BD00DF8DE5 /* AppDelegate.swift in Sources */,
+				4911E344277943C6003D026D /* LoginController.swift in Sources */,
 				495C666B2772C76300C2676F /* NewInvoiceViewModel.swift in Sources */,
+				4911E34B27794CC3003D026D /* SignUpController.swift in Sources */,
 				497A64712777AFA40088BC30 /* Item.swift in Sources */,
+				4911E34727794593003D026D /* User.swift in Sources */,
 				496A4759277179BD00DF8DE5 /* SceneDelegate.swift in Sources */,
 				496A477327717C8C00DF8DE5 /* MainTabController.swift in Sources */,
 				496A476F27717A6000DF8DE5 /* InvoicesController.swift in Sources */,
