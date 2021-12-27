@@ -11,15 +11,15 @@ class InvoicesController: UIViewController {
     // MARK: - Properties
 
     @IBOutlet var tableView: UITableView!
-    @IBOutlet weak var noInvoicesLabel: UILabel!
-    
+    @IBOutlet var noInvoicesLabel: UILabel!
+
     private let reuseIdentifier = "InvoiceCell"
     var viewModel: InvoicesViewModel? {
         didSet {
             guard let viewModel = viewModel else {
                 return
             }
-            
+
             tableView?.isHidden = viewModel.invoices.isEmpty
             noInvoicesLabel?.isHidden = !viewModel.invoices.isEmpty
         }
@@ -35,8 +35,8 @@ class InvoicesController: UIViewController {
     // MARK: - Actions
 
     @objc func pressedCreateInvoiceButton() {
-        guard let invoices = viewModel?.invoices else { return }
-        let invoiceNumber = invoices.count + 1
+        guard let viewModel = viewModel else { return }
+        let invoiceNumber = viewModel.invoices.count + 1
 
         let date = Date()
         let dateFormatter = DateFormatter()
@@ -44,7 +44,7 @@ class InvoicesController: UIViewController {
         let formattedDate = dateFormatter.string(from: date)
 
         let viewController = NewInvoiceController()
-        let newInvoice = Invoice(invoiceNumber: invoiceNumber, date: formattedDate)
+        let newInvoice = Invoice(invoiceNumber: invoiceNumber, date: formattedDate, companyName: viewModel.user.companyName)
         viewController.viewModel = NewInvoiceViewModel(invoice: newInvoice)
         viewController.delegate = self
         navigationController?.pushViewController(viewController, animated: true)

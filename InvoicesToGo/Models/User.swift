@@ -8,8 +8,17 @@
 import Foundation
 
 struct User {
+    let uid: String
     let email: String
     let firstName: String
     let lastName: String
-    let uid: String
+    let companyName: String
+
+    init(dictionary: [String: Any]) {
+        uid = dictionary["uid"] as? String ?? ""
+        email = dictionary["email"] as? String ?? ""
+        firstName = dictionary["firstname"] as? String ?? ""
+        lastName = dictionary["lastName"] as? String ?? ""
+        companyName = dictionary["companyName"] as? String ?? ""
+    }
 }

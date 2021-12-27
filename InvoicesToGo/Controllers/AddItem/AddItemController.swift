@@ -14,10 +14,11 @@ protocol AddItemControllerDelegate: AnyObject {
 
 class AddItemController: UIViewController {
     // MARK: - Properties
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var quantityTextField: UITextField!
-    @IBOutlet weak var rateTextField: UITextField!
-    
+
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var quantityTextField: UITextField!
+    @IBOutlet var rateTextField: UITextField!
+
     weak var delegate: AddItemControllerDelegate?
 
     // MARK: - Lifecycle
@@ -36,9 +37,9 @@ class AddItemController: UIViewController {
         let name = nameTextField.text
         let quantity = Int(quantityTextField.text!) ?? 0
         let rate = Double(rateTextField.text!) ?? 0.0
-        
+
         let item = Item(name: name!, quatity: quantity, rate: rate)
-        
+
         delegate?.addButtonPressed(item: item)
     }
 }
