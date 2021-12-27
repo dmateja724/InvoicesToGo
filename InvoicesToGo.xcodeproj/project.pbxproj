@@ -35,6 +35,7 @@
 		497A646D2777A8F40088BC30 /* InvoicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A646C2777A8F40088BC30 /* InvoicesViewModel.swift */; };
 		497A646F2777AF910088BC30 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A646E2777AF910088BC30 /* Invoice.swift */; };
 		497A64712777AFA40088BC30 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A64702777AFA40088BC30 /* Item.swift */; };
+		4998055E277A5A0900C955C4 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998055D277A5A0900C955C4 /* AuthenticationViewModel.swift */; };
 		49C98BDA277A43E300E9F0A3 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C98BD8277A43E300E9F0A3 /* ResetPasswordController.swift */; };
 		49C98BDB277A43E300E9F0A3 /* ResetPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C98BD9277A43E300E9F0A3 /* ResetPasswordController.xib */; };
 		49C98BDE277A46C100E9F0A3 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C98BDD277A46C100E9F0A3 /* UIViewControllerExtension.swift */; };
@@ -73,6 +74,7 @@
 		497A646C2777A8F40088BC30 /* InvoicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicesViewModel.swift; sourceTree = "<group>"; };
 		497A646E2777AF910088BC30 /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
 		497A64702777AFA40088BC30 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		4998055D277A5A0900C955C4 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		49C98BD8277A43E300E9F0A3 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		49C98BD9277A43E300E9F0A3 /* ResetPasswordController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordController.xib; sourceTree = "<group>"; };
 		49C98BDD277A46C100E9F0A3 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				495C666A2772C76300C2676F /* NewInvoiceViewModel.swift */,
 				497A646C2777A8F40088BC30 /* InvoicesViewModel.swift */,
+				4998055D277A5A0900C955C4 /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				4958A218277A1A5E0076F2DD /* UserService.swift in Sources */,
 				497A64712777AFA40088BC30 /* Item.swift in Sources */,
 				4911E34727794593003D026D /* User.swift in Sources */,
+				4998055E277A5A0900C955C4 /* AuthenticationViewModel.swift in Sources */,
 				496A4759277179BD00DF8DE5 /* SceneDelegate.swift in Sources */,
 				496A477327717C8C00DF8DE5 /* MainTabController.swift in Sources */,
 				496A476F27717A6000DF8DE5 /* InvoicesController.swift in Sources */,

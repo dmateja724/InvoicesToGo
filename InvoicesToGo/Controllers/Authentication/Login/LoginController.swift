@@ -16,17 +16,29 @@ class LoginController: UIViewController {
 
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var signInButton: UIButton!
 
+    var viewModel = LoginViewModel()
     weak var delegate: AuthenticationDelegate?
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateForm()
     }
 
     // MARK: - Actions
-
+    @IBAction func textDidChange(_ sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        } else {
+            viewModel.password = sender.text
+        }
+        
+        updateForm()
+    }
+    
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         guard let email = emailTextField.text,
               let password = passwordTextField.text
@@ -36,7 +48,7 @@ class LoginController: UIViewController {
 
         AuthService.logUserIn(email: email, password: password) { _, error in
             if let error = error {
-                print("DEBUG: Fialed to log user in \(error.localizedDescription)")
+                self.showMessage(withTitle: "Error", message: error.localizedDescription)
                 return
             }
             self.delegate?.authenticationDidComplete()
@@ -63,5 +75,15 @@ extension LoginController: ResetPasswordControllerDelegate {
     func controllerDidSendResetPasswordLink(_ controller: ResetPasswordController) {
         navigationController?.popViewController(animated: true)
         showMessage(withTitle: "Success", message: "We sent a link to your email to reset your password.")
+    }
+}
+
+//MARK: - FormViewModel
+
+extension LoginController: FormViewModel {
+    func updateForm() {
+        signInButton.tintColor = viewModel.buttonBackgroundColor
+        signInButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        signInButton.isEnabled = viewModel.formIsValid
     }
 }
