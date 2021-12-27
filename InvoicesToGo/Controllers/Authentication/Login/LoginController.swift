@@ -29,16 +29,17 @@ class LoginController: UIViewController {
     }
 
     // MARK: - Actions
+
     @IBAction func textDidChange(_ sender: UITextField) {
         if sender == emailTextField {
             viewModel.email = sender.text
         } else {
             viewModel.password = sender.text
         }
-        
+
         updateForm()
     }
-    
+
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         guard let email = emailTextField.text,
               let password = passwordTextField.text
@@ -78,7 +79,7 @@ extension LoginController: ResetPasswordControllerDelegate {
     }
 }
 
-//MARK: - FormViewModel
+// MARK: - FormViewModel
 
 extension LoginController: FormViewModel {
     func updateForm() {

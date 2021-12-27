@@ -15,28 +15,29 @@ class ResetPasswordController: UIViewController {
     // MARK: - Properties
 
     @IBOutlet var emailTextField: UITextField!
-    @IBOutlet weak var resetPasswordButton: UIButton!
-    
+    @IBOutlet var resetPasswordButton: UIButton!
+
     private var viewModel = ResetPasswordViewModel()
     weak var delegate: ResetPasswordControllerDelegate?
     var email: String?
-    
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
-    
+
     // MARK: - Helpers
-    
+
     func configure() {
         viewModel.email = email
         emailTextField.text = email
         updateForm()
     }
-    
+
     // MARK: - Actions
+
     @IBAction func textDidChange(_ sender: UITextField) {
         if sender == emailTextField {
             viewModel.email = sender.text
@@ -44,7 +45,7 @@ class ResetPasswordController: UIViewController {
 
         updateForm()
     }
-    
+
     @IBAction func resetPasswordButtonPressed(_ sender: UIButton) {
         guard let email = emailTextField.text else { return }
         AuthService.resetPassword(withEmail: email) { error in
@@ -52,13 +53,14 @@ class ResetPasswordController: UIViewController {
                 self.showMessage(withTitle: "Error", message: error.localizedDescription)
                 return
             }
-            
+
             self.delegate?.controllerDidSendResetPasswordLink(self)
         }
     }
 }
 
-//MARK: - FormViewModel
+// MARK: - FormViewModel
+
 extension ResetPasswordController: FormViewModel {
     func updateForm() {
         resetPasswordButton.tintColor = viewModel.buttonBackgroundColor

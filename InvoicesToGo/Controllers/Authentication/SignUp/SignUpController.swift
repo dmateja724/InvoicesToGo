@@ -15,8 +15,8 @@ class SignUpController: UIViewController {
     @IBOutlet var companyNameTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet weak var signUpButton: UIButton!
-    
+    @IBOutlet var signUpButton: UIButton!
+
     var viewModel = SignUpViewModel()
     weak var delegate: AuthenticationDelegate?
 
@@ -28,6 +28,7 @@ class SignUpController: UIViewController {
     }
 
     // MARK: - Actions
+
     @IBAction func textDidChange(_ sender: UITextField) {
         if sender == firstNameTextField {
             viewModel.firstName = sender.text
@@ -43,7 +44,7 @@ class SignUpController: UIViewController {
 
         updateForm()
     }
-    
+
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
         guard let firstName = firstNameTextField.text,
               let lasName = lastNameTextField.text,
