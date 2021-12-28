@@ -16,12 +16,7 @@ class InvoicesController: UIViewController {
     private let reuseIdentifier = "InvoiceCell"
     var viewModel: InvoicesViewModel? {
         didSet {
-            guard let viewModel = viewModel else {
-                return
-            }
-
-            tableView?.isHidden = viewModel.invoices.isEmpty
-            noInvoicesLabel?.isHidden = !viewModel.invoices.isEmpty
+            refreshUI()
         }
     }
 
@@ -61,6 +56,17 @@ class InvoicesController: UIViewController {
         let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(pressedCreateInvoiceButton))
         barButtonItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
         navigationItem.rightBarButtonItem = barButtonItem
+        refreshUI()
+    }
+    
+    func refreshUI() {
+        guard let viewModel = viewModel else {
+            return
+        }
+
+        tableView?.isHidden = viewModel.invoices.isEmpty
+        noInvoicesLabel?.isHidden = !viewModel.invoices.isEmpty
+        tableView?.reloadData()
     }
 }
 
@@ -87,6 +93,8 @@ extension InvoicesController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
+
+//MARK: - NewInvoiceControllerDelegate
 
 extension InvoicesController: NewInvoiceControllerDelegate {
     func saveInvoicePressed(invoice: Invoice) {
