@@ -8,7 +8,6 @@
 import UIKit
 
 protocol AddItemControllerDelegate: AnyObject {
-    func cancelButtonPressed()
     func addButtonPressed(item: Item)
 }
 
@@ -29,17 +28,20 @@ class AddItemController: UIViewController {
 
     // MARK: - Actions
 
-    @IBAction func cancelButtonPressed(_ sender: UIButton) {
-        delegate?.cancelButtonPressed()
-    }
-
     @IBAction func addButtonPressed(_ sender: UIButton) {
         let name = nameTextField.text
         let quantity = Int(quantityTextField.text!) ?? 0
         let rate = Double(rateTextField.text!) ?? 0.0
 
         let item = Item(name: name!, quatity: quantity, rate: rate)
-
         delegate?.addButtonPressed(item: item)
+
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+
+    @IBAction func cancelButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
 }

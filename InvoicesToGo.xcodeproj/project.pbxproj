@@ -37,6 +37,7 @@
 		497A64712777AFA40088BC30 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A64702777AFA40088BC30 /* Item.swift */; };
 		4994374D277E19AF00B51E17 /* AddClientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994374B277E19AF00B51E17 /* AddClientController.swift */; };
 		4994374E277E19AF00B51E17 /* AddClientController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4994374C277E19AF00B51E17 /* AddClientController.xib */; };
+		49943752277E526200B51E17 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49943751277E526200B51E17 /* Client.swift */; };
 		4998055E277A5A0900C955C4 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998055D277A5A0900C955C4 /* AuthenticationViewModel.swift */; };
 		49C98BDA277A43E300E9F0A3 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C98BD8277A43E300E9F0A3 /* ResetPasswordController.swift */; };
 		49C98BDB277A43E300E9F0A3 /* ResetPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C98BD9277A43E300E9F0A3 /* ResetPasswordController.xib */; };
@@ -78,6 +79,7 @@
 		497A64702777AFA40088BC30 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		4994374B277E19AF00B51E17 /* AddClientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientController.swift; sourceTree = "<group>"; };
 		4994374C277E19AF00B51E17 /* AddClientController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddClientController.xib; sourceTree = "<group>"; };
+		49943751277E526200B51E17 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		4998055D277A5A0900C955C4 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		49C98BD8277A43E300E9F0A3 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		49C98BD9277A43E300E9F0A3 /* ResetPasswordController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordController.xib; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				497A646E2777AF910088BC30 /* Invoice.swift */,
 				497A64702777AFA40088BC30 /* Item.swift */,
 				4911E34627794593003D026D /* User.swift */,
+				49943751277E526200B51E17 /* Client.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				4994374D277E19AF00B51E17 /* AddClientController.swift in Sources */,
 				496A4757277179BD00DF8DE5 /* AppDelegate.swift in Sources */,
 				4911E344277943C6003D026D /* LoginController.swift in Sources */,
+				49943752277E526200B51E17 /* Client.swift in Sources */,
 				495C666B2772C76300C2676F /* NewInvoiceViewModel.swift in Sources */,
 				4911E34B27794CC3003D026D /* SignUpController.swift in Sources */,
 				4958A218277A1A5E0076F2DD /* UserService.swift in Sources */,

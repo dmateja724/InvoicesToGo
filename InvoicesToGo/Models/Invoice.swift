@@ -13,4 +13,5 @@ struct Invoice {
     var items = [Item]()
     var totalAmount = 0.0
     var companyName: String
+    var clientInfo: Client?
 }
