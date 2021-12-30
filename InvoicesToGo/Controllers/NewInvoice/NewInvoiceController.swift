@@ -19,6 +19,7 @@ class NewInvoiceController: UIViewController {
     @IBOutlet var invoiceNumberLabel: UILabel!
     @IBOutlet var totalAmountLabel: UILabel!
     @IBOutlet var tableViewHeight: NSLayoutConstraint!
+    @IBOutlet var addClientButton: UIButton!
     
     private let reuseIdentifier = "ItemCell"
     weak var delegate: NewInvoiceControllerDelegate?
@@ -53,7 +54,11 @@ class NewInvoiceController: UIViewController {
         navigationController?.popViewController(animated: true)
         delegate?.saveInvoicePressed(invoice: invoice)
     }
-
+    @IBAction func addClientPressed(_ sender: UIButton) {
+        let viewController = AddClientController()
+        present(viewController, animated: true, completion: nil)
+    }
+    
     // MARK: - Helpers
 
     func configure() {
