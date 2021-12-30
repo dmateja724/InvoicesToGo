@@ -17,28 +17,28 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#200: Acme Co." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lq-L4-raH">
-                        <rect key="frame" x="15" y="10" width="123.5" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="15" y="10" width="129" height="22.5"/>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov 19. Fully paid Nov. 29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3o-zf-NdR">
-                        <rect key="frame" x="15" y="36" width="166.5" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="15" y="34.5" width="175.5" height="18.5"/>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10,000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C82-y6-qef">
-                        <rect key="frame" x="289" y="10" width="86" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="281.5" y="32.5" width="93.5" height="22.5"/>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iv4-Zh-pAd">
-                        <rect key="frame" x="189" y="36.5" width="18.5" height="16.5"/>
+                        <rect key="frame" x="198" y="36" width="18.5" height="16.5"/>
                     </imageView>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySG-yf-jgE">
-                        <rect key="frame" x="339" y="31" width="49" height="31"/>
+                        <rect key="frame" x="326" y="0.0" width="49" height="31"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="printer" catalog="system"/>
                         <connections>
@@ -47,16 +47,16 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="ySG-yf-jgE" secondAttribute="trailing" constant="15" id="AJK-23-bWJ"/>
                     <constraint firstAttribute="bottom" secondItem="o3o-zf-NdR" secondAttribute="bottom" constant="17" id="CMj-w9-lVD"/>
                     <constraint firstItem="7Lq-L4-raH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Dee-W9-Rpo"/>
-                    <constraint firstAttribute="trailing" secondItem="ySG-yf-jgE" secondAttribute="trailing" constant="2" id="FTA-tS-Hc5"/>
-                    <constraint firstItem="C82-y6-qef" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Gi7-no-ZSG"/>
                     <constraint firstItem="7Lq-L4-raH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="IT5-NY-rGQ"/>
                     <constraint firstItem="iv4-Zh-pAd" firstAttribute="leading" secondItem="o3o-zf-NdR" secondAttribute="trailing" constant="7.5" id="OV1-6r-Nuh"/>
-                    <constraint firstAttribute="trailing" secondItem="C82-y6-qef" secondAttribute="trailing" constant="15" id="P6x-Ld-NEm"/>
                     <constraint firstItem="o3o-zf-NdR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="fPH-Xe-9gi"/>
+                    <constraint firstItem="ySG-yf-jgE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="j8i-zQ-M83"/>
+                    <constraint firstAttribute="bottom" secondItem="C82-y6-qef" secondAttribute="bottom" constant="15" id="kfE-bz-wKm"/>
+                    <constraint firstAttribute="trailing" secondItem="C82-y6-qef" secondAttribute="trailing" constant="15" id="qa2-WH-CrJ"/>
                     <constraint firstItem="iv4-Zh-pAd" firstAttribute="centerY" secondItem="o3o-zf-NdR" secondAttribute="centerY" id="y3p-Jn-A4M"/>
-                    <constraint firstAttribute="bottom" secondItem="ySG-yf-jgE" secondAttribute="bottom" constant="8" id="yNF-JZ-KtZ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

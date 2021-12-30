@@ -35,6 +35,9 @@
 		497A646D2777A8F40088BC30 /* InvoicesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A646C2777A8F40088BC30 /* InvoicesViewModel.swift */; };
 		497A646F2777AF910088BC30 /* Invoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A646E2777AF910088BC30 /* Invoice.swift */; };
 		497A64712777AFA40088BC30 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497A64702777AFA40088BC30 /* Item.swift */; };
+		4994374D277E19AF00B51E17 /* AddClientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994374B277E19AF00B51E17 /* AddClientController.swift */; };
+		4994374E277E19AF00B51E17 /* AddClientController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4994374C277E19AF00B51E17 /* AddClientController.xib */; };
+		49943752277E526200B51E17 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49943751277E526200B51E17 /* Client.swift */; };
 		4998055E277A5A0900C955C4 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998055D277A5A0900C955C4 /* AuthenticationViewModel.swift */; };
 		49C98BDA277A43E300E9F0A3 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C98BD8277A43E300E9F0A3 /* ResetPasswordController.swift */; };
 		49C98BDB277A43E300E9F0A3 /* ResetPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C98BD9277A43E300E9F0A3 /* ResetPasswordController.xib */; };
@@ -74,6 +77,9 @@
 		497A646C2777A8F40088BC30 /* InvoicesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoicesViewModel.swift; sourceTree = "<group>"; };
 		497A646E2777AF910088BC30 /* Invoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invoice.swift; sourceTree = "<group>"; };
 		497A64702777AFA40088BC30 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		4994374B277E19AF00B51E17 /* AddClientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientController.swift; sourceTree = "<group>"; };
+		4994374C277E19AF00B51E17 /* AddClientController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddClientController.xib; sourceTree = "<group>"; };
+		49943751277E526200B51E17 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		4998055D277A5A0900C955C4 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		49C98BD8277A43E300E9F0A3 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		49C98BD9277A43E300E9F0A3 /* ResetPasswordController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordController.xib; sourceTree = "<group>"; };
@@ -192,6 +198,7 @@
 				497A646E2777AF910088BC30 /* Invoice.swift */,
 				497A64702777AFA40088BC30 /* Item.swift */,
 				4911E34627794593003D026D /* User.swift */,
+				49943751277E526200B51E17 /* Client.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -245,6 +252,7 @@
 		496A476A277179F600DF8DE5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4994374A277E199700B51E17 /* AddClient */,
 				496A477227717C8C00DF8DE5 /* MainTabController.swift */,
 				4911E3402779437A003D026D /* Authentication */,
 				495C666C2772CCD100C2676F /* AddItem */,
@@ -270,6 +278,15 @@
 				496A477627717F8800DF8DE5 /* NewInvoiceController.xib */,
 			);
 			path = NewInvoice;
+			sourceTree = "<group>";
+		};
+		4994374A277E199700B51E17 /* AddClient */ = {
+			isa = PBXGroup;
+			children = (
+				4994374B277E19AF00B51E17 /* AddClientController.swift */,
+				4994374C277E19AF00B51E17 /* AddClientController.xib */,
+			);
+			path = AddClient;
 			sourceTree = "<group>";
 		};
 		49C98BD7277A43C900E9F0A3 /* ResetPasswordController */ = {
@@ -357,6 +374,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4994374E277E19AF00B51E17 /* AddClientController.xib in Resources */,
 				4911E34C27794CC3003D026D /* SignUpController.xib in Resources */,
 				496A477827717F8800DF8DE5 /* NewInvoiceController.xib in Resources */,
 				49C98BDB277A43E300E9F0A3 /* ResetPasswordController.xib in Resources */,
@@ -422,8 +440,10 @@
 			files = (
 				4917710F2774089100D90BC4 /* ItemCell.swift in Sources */,
 				495C666F2772CDE900C2676F /* AddItemController.swift in Sources */,
+				4994374D277E19AF00B51E17 /* AddClientController.swift in Sources */,
 				496A4757277179BD00DF8DE5 /* AppDelegate.swift in Sources */,
 				4911E344277943C6003D026D /* LoginController.swift in Sources */,
+				49943752277E526200B51E17 /* Client.swift in Sources */,
 				495C666B2772C76300C2676F /* NewInvoiceViewModel.swift in Sources */,
 				4911E34B27794CC3003D026D /* SignUpController.swift in Sources */,
 				4958A218277A1A5E0076F2DD /* UserService.swift in Sources */,

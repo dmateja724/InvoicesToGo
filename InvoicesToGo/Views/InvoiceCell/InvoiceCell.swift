@@ -37,7 +37,12 @@ class InvoiceCell: UITableViewCell {
     func configure(invoice: Invoice) {
         let totalAmount = String(format: "%.2f", invoice.totalAmount)
 
-        invoiceHeaderLabel.text = "#\(invoice.invoiceNumber): \(invoice.companyName)"
+        if let clientInfo = invoice.clientInfo {
+            invoiceHeaderLabel.text = "#\(invoice.invoiceNumber): \(clientInfo.fullName)"
+        } else {
+            invoiceHeaderLabel.text = "#\(invoice.invoiceNumber)"
+        }
+
         invoiceInfoLabel.text = invoice.date
         totalAmountLabel.text = "$\(totalAmount)"
     }

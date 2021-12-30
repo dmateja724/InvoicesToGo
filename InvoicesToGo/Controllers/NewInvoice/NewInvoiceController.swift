@@ -19,13 +19,21 @@ class NewInvoiceController: UIViewController {
     @IBOutlet var invoiceNumberLabel: UILabel!
     @IBOutlet var totalAmountLabel: UILabel!
     @IBOutlet var tableViewHeight: NSLayoutConstraint!
-    
+    @IBOutlet var addClientButton: UIButton!
+
     private let reuseIdentifier = "ItemCell"
     weak var delegate: NewInvoiceControllerDelegate?
     var viewModel: NewInvoiceViewModel? {
         didSet {
             guard let viewModel = viewModel else {
                 return
+            }
+
+            if let client = viewModel.invoice.clientInfo,
+               !client.fullName.isEmpty
+            {
+                addClientButton.setTitle(client.fullName, for: .normal)
+                addClientButton.setImage(UIImage(), for: .normal)
             }
 
             tableViewHeight?.constant = CGFloat(viewModel.invoice.items.count * 65)
@@ -54,6 +62,12 @@ class NewInvoiceController: UIViewController {
         delegate?.saveInvoicePressed(invoice: invoice)
     }
 
+    @IBAction func addClientPressed(_ sender: UIButton) {
+        let viewController = AddClientController()
+        viewController.delegate = self
+        present(viewController, animated: true, completion: nil)
+    }
+
     // MARK: - Helpers
 
     func configure() {
@@ -64,14 +78,11 @@ class NewInvoiceController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
 
-        tableView.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellReuseIdentifier: reuseIdentifier)
         tableView.rowHeight = 65
-      
         tableViewHeight.constant = CGFloat(invoice.items.count * 65)
-        
+        tableView.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellReuseIdentifier: reuseIdentifier)
         tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: CGFloat(invoice.items.count * 65))
 
-        
         dateLabel.text = invoice.date
         invoiceNumberLabel.text = String(invoice.invoiceNumber)
         setTotalAmount()
@@ -119,15 +130,16 @@ extension NewInvoiceController: UITableViewDelegate {
 // MARK: - AddItemControllerDelegate
 
 extension NewInvoiceController: AddItemControllerDelegate {
-    func cancelButtonPressed() {
-        dismiss(animated: true, completion: nil)
-    }
-
     func addButtonPressed(item: Item) {
         viewModel?.invoice.items.append(item)
         setTotalAmount()
-        DispatchQueue.main.async {
-            self.dismiss(animated: true, completion: nil)
-        }
+    }
+}
+
+// MARK: - AddClientControllerDelegate
+
+extension NewInvoiceController: AddClientControllerDelegate {
+    func addButtonPressed(client: Client) {
+        viewModel?.invoice.clientInfo = client
     }
 }
