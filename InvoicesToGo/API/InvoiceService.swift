@@ -11,7 +11,7 @@ enum InvoiceService {
     static func saveInvoice(invoice: Invoice, completion: @escaping (Error?) -> Void) {
         let items: [[String: Any]] = invoice.items.map { item in
             ["name": item.name,
-             "quantity": item.quatity,
+             "quantity": item.quantity,
              "rate": item.rate]
         }
 
@@ -31,5 +31,17 @@ enum InvoiceService {
                                    "ownerUid": invoice.ownerUid]
 
         COLLECTION_INVOICES.document(invoice.uid).setData(data, completion: completion)
+    }
+
+    static func fetchInvoices(forUser uid: String, completion: @escaping ([Invoice]) -> Void) {
+        let query = COLLECTION_INVOICES.whereField("ownerUid", isEqualTo: uid)
+
+        query.getDocuments { snapshot, _ in
+            guard let documents = snapshot?.documents else { return }
+
+            let invoices = documents.map { Invoice(dictionary: $0.data()) }
+
+            completion(invoices)
+        }
     }
 }

@@ -9,6 +9,12 @@ import Foundation
 
 struct Item {
     var name: String
-    var quatity: Int
+    var quantity: Int
     var rate: Double
+
+    init(dictionary: [String: Any]) {
+        name = dictionary["name"] as? String ?? ""
+        quantity = dictionary["quantity"] as? Int ?? 0
+        rate = dictionary["rate"] as? Double ?? 0.0
+    }
 }

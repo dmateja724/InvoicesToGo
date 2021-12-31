@@ -39,7 +39,11 @@ class AddClientController: UIViewController {
             return
         }
 
-        let client = Client(fullName: clientName, phoneNumber: clientPhone, email: clientEmail)
+        let dictionary: [String: Any] = ["fullName": clientName,
+                                         "phoneNumber": clientPhone,
+                                         "email": clientEmail]
+
+        let client = Client(dictionary: dictionary)
         delegate?.addButtonPressed(client: client)
 
         DispatchQueue.main.async {

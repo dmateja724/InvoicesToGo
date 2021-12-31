@@ -91,7 +91,7 @@ class NewInvoiceController: UIViewController {
         var total = 0.0
 
         for item in invoice.items {
-            total += item.rate * Double(item.quatity)
+            total += item.rate * Double(item.quantity)
         }
 
         viewModel?.invoice.totalAmount = total

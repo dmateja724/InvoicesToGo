@@ -25,12 +25,12 @@ class InvoicesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        fetchInvoices()
     }
 
     // MARK: - Actions
 
     @objc func pressedCreateInvoiceButton() {
-        
         let viewController = NewInvoiceController()
         let newInvoice = generateInvoice()
         viewController.viewModel = NewInvoiceViewModel(invoice: newInvoice)
@@ -38,8 +38,20 @@ class InvoicesController: UIViewController {
         navigationController?.pushViewController(viewController, animated: true)
     }
 
+    // MARK: - API
+
+    func fetchInvoices() {
+        guard let viewModel = viewModel else {
+            return
+        }
+
+        InvoiceService.fetchInvoices(forUser: viewModel.user.uid) { invoices in
+            self.viewModel?.invoices = invoices
+        }
+    }
+
     // MARK: - Helpers
-    
+
     func generateInvoice() -> Invoice {
         let invoiceNumber = viewModel!.invoices.count + 1
 
@@ -47,9 +59,15 @@ class InvoicesController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         let formattedDate = dateFormatter.string(from: date)
-        
-        let invoice = Invoice(uid: NSUUID().uuidString, invoiceNumber: invoiceNumber, dateCreated: formattedDate, companyName: viewModel!.user.companyName, ownerUid: viewModel!.user.uid)
-        
+
+        let dictionary: [String: Any] = ["uid": NSUUID().uuidString,
+                                         "invoiceNumber": invoiceNumber,
+                                         "dateCreated": formattedDate,
+                                         "companyName": viewModel!.user.companyName,
+                                         "ownerUid": viewModel!.user.uid]
+
+        let invoice = Invoice(dictionary: dictionary)
+
         return invoice
     }
 
@@ -64,7 +82,7 @@ class InvoicesController: UIViewController {
         navigationItem.rightBarButtonItem = barButtonItem
         refreshUI()
     }
-    
+
     func refreshUI() {
         guard let viewModel = viewModel else {
             return
@@ -100,14 +118,14 @@ extension InvoicesController: UITableViewDelegate {
     }
 }
 
-//MARK: - NewInvoiceControllerDelegate
+// MARK: - NewInvoiceControllerDelegate
 
 extension InvoicesController: NewInvoiceControllerDelegate {
     func saveInvoicePressed(invoice: Invoice) {
-        InvoiceService.saveInvoice(invoice: invoice) {_ in 
+        InvoiceService.saveInvoice(invoice: invoice) { _ in
             print("DEBUG: save invoice complete")
         }
-        
+
         viewModel?.invoices.append(invoice)
         DispatchQueue.main.async {
             self.tableView.reloadData()

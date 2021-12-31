@@ -33,7 +33,11 @@ class AddItemController: UIViewController {
         let quantity = Int(quantityTextField.text!) ?? 0
         let rate = Double(rateTextField.text!) ?? 0.0
 
-        let item = Item(name: name!, quatity: quantity, rate: rate)
+        let dictionary: [String: Any] = ["name": name!,
+                                         "quantity": quantity,
+                                         "rate": rate]
+
+        let item = Item(dictionary: dictionary)
         delegate?.addButtonPressed(item: item)
 
         DispatchQueue.main.async {
