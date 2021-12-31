@@ -30,22 +30,28 @@ class InvoicesController: UIViewController {
     // MARK: - Actions
 
     @objc func pressedCreateInvoiceButton() {
-        guard let viewModel = viewModel else { return }
-        let invoiceNumber = viewModel.invoices.count + 1
-
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        let formattedDate = dateFormatter.string(from: date)
-
+        
         let viewController = NewInvoiceController()
-        let newInvoice = Invoice(invoiceNumber: invoiceNumber, date: formattedDate, companyName: viewModel.user.companyName)
+        let newInvoice = generateInvoice()
         viewController.viewModel = NewInvoiceViewModel(invoice: newInvoice)
         viewController.delegate = self
         navigationController?.pushViewController(viewController, animated: true)
     }
 
     // MARK: - Helpers
+    
+    func generateInvoice() -> Invoice {
+        let invoiceNumber = viewModel!.invoices.count + 1
+
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        let formattedDate = dateFormatter.string(from: date)
+        
+        let invoice = Invoice(uid: NSUUID().uuidString, invoiceNumber: invoiceNumber, dateCreated: formattedDate, companyName: viewModel!.user.companyName, ownerUid: viewModel!.user.uid)
+        
+        return invoice
+    }
 
     func configure() {
         tableView.dataSource = self
@@ -98,6 +104,10 @@ extension InvoicesController: UITableViewDelegate {
 
 extension InvoicesController: NewInvoiceControllerDelegate {
     func saveInvoicePressed(invoice: Invoice) {
+        InvoiceService.saveInvoice(invoice: invoice) {_ in 
+            print("DEBUG: save invoice complete")
+        }
+        
         viewModel?.invoices.append(invoice)
         DispatchQueue.main.async {
             self.tableView.reloadData()

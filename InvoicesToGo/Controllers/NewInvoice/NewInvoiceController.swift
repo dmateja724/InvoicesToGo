@@ -29,10 +29,8 @@ class NewInvoiceController: UIViewController {
                 return
             }
 
-            if let client = viewModel.invoice.clientInfo,
-               !client.fullName.isEmpty
-            {
-                addClientButton.setTitle(client.fullName, for: .normal)
+            if !viewModel.invoice.clientInfo.fullName.isEmpty {
+                addClientButton.setTitle(viewModel.invoice.clientInfo.fullName, for: .normal)
                 addClientButton.setImage(UIImage(), for: .normal)
             }
 
@@ -83,7 +81,7 @@ class NewInvoiceController: UIViewController {
         tableView.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellReuseIdentifier: reuseIdentifier)
         tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: CGFloat(invoice.items.count * 65))
 
-        dateLabel.text = invoice.date
+        dateLabel.text = invoice.dateCreated
         invoiceNumberLabel.text = String(invoice.invoiceNumber)
         setTotalAmount()
     }

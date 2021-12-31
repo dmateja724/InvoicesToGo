@@ -38,6 +38,7 @@
 		4994374D277E19AF00B51E17 /* AddClientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4994374B277E19AF00B51E17 /* AddClientController.swift */; };
 		4994374E277E19AF00B51E17 /* AddClientController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4994374C277E19AF00B51E17 /* AddClientController.xib */; };
 		49943752277E526200B51E17 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49943751277E526200B51E17 /* Client.swift */; };
+		49943754277E6D0200B51E17 /* InvoiceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49943753277E6D0200B51E17 /* InvoiceService.swift */; };
 		4998055E277A5A0900C955C4 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4998055D277A5A0900C955C4 /* AuthenticationViewModel.swift */; };
 		49C98BDA277A43E300E9F0A3 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C98BD8277A43E300E9F0A3 /* ResetPasswordController.swift */; };
 		49C98BDB277A43E300E9F0A3 /* ResetPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49C98BD9277A43E300E9F0A3 /* ResetPasswordController.xib */; };
@@ -80,6 +81,7 @@
 		4994374B277E19AF00B51E17 /* AddClientController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientController.swift; sourceTree = "<group>"; };
 		4994374C277E19AF00B51E17 /* AddClientController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddClientController.xib; sourceTree = "<group>"; };
 		49943751277E526200B51E17 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		49943753277E6D0200B51E17 /* InvoiceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceService.swift; sourceTree = "<group>"; };
 		4998055D277A5A0900C955C4 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		49C98BD8277A43E300E9F0A3 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		49C98BD9277A43E300E9F0A3 /* ResetPasswordController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordController.xib; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				4958A215277A18580076F2DD /* AuthService.swift */,
 				4958A217277A1A5E0076F2DD /* UserService.swift */,
+				49943753277E6D0200B51E17 /* InvoiceService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				4911E34727794593003D026D /* User.swift in Sources */,
 				4998055E277A5A0900C955C4 /* AuthenticationViewModel.swift in Sources */,
 				496A4759277179BD00DF8DE5 /* SceneDelegate.swift in Sources */,
+				49943754277E6D0200B51E17 /* InvoiceService.swift in Sources */,
 				496A477327717C8C00DF8DE5 /* MainTabController.swift in Sources */,
 				496A476F27717A6000DF8DE5 /* InvoicesController.swift in Sources */,
 				49C98BDE277A46C100E9F0A3 /* UIViewControllerExtension.swift in Sources */,
