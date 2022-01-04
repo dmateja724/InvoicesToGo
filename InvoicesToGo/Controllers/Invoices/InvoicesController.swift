@@ -5,6 +5,7 @@
 //  Created by Derrick Mateja on 12/20/21.
 //
 
+import PDFKit
 import UIKit
 
 class InvoicesController: UIViewController {
@@ -92,6 +93,59 @@ class InvoicesController: UIViewController {
         noInvoicesLabel?.isHidden = !viewModel.invoices.isEmpty
         tableView?.reloadData()
     }
+
+    func generatePDF(index: Int) -> Data {
+        guard let viewModel = viewModel else {
+            return Data()
+        }
+
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        let todaysDate = dateFormatter.string(from: date)
+
+        let format = UIGraphicsPDFRendererFormat()
+        let pageWidth = 8.5 * 72.0
+        let pageHeight = 11 * 72.0
+        let pageRect = CGRect(x: 0, y: 0, width: pageWidth, height: pageHeight)
+        let renderer = UIGraphicsPDFRenderer(bounds: pageRect, format: format)
+        var currentY = 0
+        
+        // 4
+        let data = renderer.pdfData { context in
+            // 5
+            context.beginPage()
+            // 6
+            let headerAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 45)]
+            let header = viewModel.user.companyName
+            currentY += 20
+            header.draw(at: CGPoint(x: 20, y: currentY), withAttributes: headerAttributes)
+
+            let invoiceNumberAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 22)]
+            let invoiceNumber = "Invoice #: \(viewModel.invoices[index].invoiceNumber)"
+            currentY += 50
+            invoiceNumber.draw(at: CGPoint(x: 25, y: currentY), withAttributes: invoiceNumberAttributes)
+
+            let dateAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 22)]
+            let date = "Date: \(todaysDate)"
+            currentY += 30
+            date.draw(at: CGPoint(x: 25, y: currentY), withAttributes: dateAttributes)
+
+            currentY += 70
+            for item in viewModel.invoices[index].items {
+                let itemsAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
+                let item = "Items: \(item.name): \(item.quantity) x \(item.rate)"
+                item.draw(at: CGPoint(x: 25, y: currentY), withAttributes: itemsAttributes)
+                currentY += 20
+            }
+            
+            let balanceDueAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 22)]
+            let balanceDue = "Balance Due: $\(String(format: "%.2f", viewModel.invoices[index].totalAmount))"
+            balanceDue.draw(at: CGPoint(x: Int(pageWidth) - 300, y: Int(pageHeight) - 100), withAttributes: balanceDueAttributes)
+        }
+
+        return data
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -114,6 +168,10 @@ extension InvoicesController: UITableViewDataSource {
 
 extension InvoicesController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = PDFPreviewController()
+        vc.viewModel = PDFPreviewViewModel()
+        vc.viewModel?.documentData = generatePDF(index: indexPath.item)
+        navigationController?.pushViewController(vc, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
