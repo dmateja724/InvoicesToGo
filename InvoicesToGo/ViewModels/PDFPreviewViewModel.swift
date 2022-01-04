@@ -8,5 +8,9 @@
 import Foundation
 
 class PDFPreviewViewModel {
-    var documentData: Data?
+    var documentData: Data
+    
+    init(documentData: Data) {
+        self.documentData = documentData
+    }
 }

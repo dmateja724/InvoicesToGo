@@ -169,8 +169,7 @@ extension InvoicesController: UITableViewDataSource {
 extension InvoicesController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = PDFPreviewController()
-        vc.viewModel = PDFPreviewViewModel()
-        vc.viewModel?.documentData = generatePDF(index: indexPath.item)
+        vc.viewModel = PDFPreviewViewModel(documentData: generatePDF(index: indexPath.item))
         navigationController?.pushViewController(vc, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
