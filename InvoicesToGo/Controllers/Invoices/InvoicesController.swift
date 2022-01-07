@@ -114,20 +114,40 @@ class InvoicesController: UIViewController {
         let data = renderer.pdfData { context in
             context.beginPage()
 
-            let headerAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 45)]
+            let headerAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 35)]
             let header = viewModel.user.companyName
             currentY += 20
             header.draw(at: CGPoint(x: 20, y: currentY), withAttributes: headerAttributes)
 
-            let invoiceNumberAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 22)]
+            let invoiceNumberAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)]
             let invoiceNumber = "Invoice #: \(viewModel.invoices[index].invoiceNumber)"
             invoiceNumber.draw(at: CGPoint(x: 450, y: currentY + 10), withAttributes: invoiceNumberAttributes)
 
-            let dateAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 22)]
+            let dateAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)]
             let date = todaysDate
             date.draw(at: CGPoint(x: 450, y: currentY + 40), withAttributes: dateAttributes)
+            
+            let userInfoAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
+            let userEmail = viewModel.user.email
+            userEmail.draw(at: CGPoint(x: 400, y: currentY + 65), withAttributes: userInfoAttributes)
+            
+            let clientInfoAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
+            let fullName = viewModel.invoices[index].clientInfo.fullName
+            fullName.draw(at: CGPoint(x: 25, y: currentY + 50), withAttributes: clientInfoAttributes)
+            
+            let address1 = viewModel.invoices[index].clientInfo.address1
+            address1.draw(at: CGPoint(x: 25, y: currentY + 65), withAttributes: clientInfoAttributes)
+            
+            let address2 = viewModel.invoices[index].clientInfo.address2
+            address2.draw(at: CGPoint(x: 25, y: currentY + 80), withAttributes: clientInfoAttributes)
+            
+            let cityStateZip = "\(viewModel.invoices[index].clientInfo.city), \(viewModel.invoices[index].clientInfo.state) \(viewModel.invoices[index].clientInfo.zipCode)"
+            cityStateZip.draw(at: CGPoint(x: 25, y: currentY + 95), withAttributes: clientInfoAttributes)
+            
+            let phoneNumber = viewModel.invoices[index].clientInfo.phoneNumber
+            phoneNumber.draw(at: CGPoint(x: 25, y: currentY + 115), withAttributes: clientInfoAttributes)
 
-            currentY += 130
+            currentY += 180
             let headerLabelAtrributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)]
             let descriptionLabel = "Description"
             descriptionLabel.draw(at: CGPoint(x: 20, y: currentY), withAttributes: headerLabelAtrributes)

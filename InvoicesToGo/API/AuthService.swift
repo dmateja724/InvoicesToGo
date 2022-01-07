@@ -14,6 +14,7 @@ struct AuthCredentials {
     let companyName: String
     let email: String
     let password: String
+    let phoneNumber: String
 }
 
 enum AuthService {
@@ -37,7 +38,8 @@ enum AuthService {
                                        "firstname": credentials.firstName,
                                        "lastName": credentials.lastName,
                                        "email": credentials.email,
-                                       "companyName": credentials.companyName]
+                                       "companyName": credentials.companyName,
+                                       "phoneNumber": credentials.phoneNumber]
 
             COLLECTION_USERS.document(uid).setData(data, completion: completion)
         }

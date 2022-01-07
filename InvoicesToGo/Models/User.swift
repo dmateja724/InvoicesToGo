@@ -13,6 +13,7 @@ struct User {
     let firstName: String
     let lastName: String
     let companyName: String
+    let phoneNumber: String
 
     init(dictionary: [String: Any]) {
         uid = dictionary["uid"] as? String ?? ""
@@ -20,5 +21,6 @@ struct User {
         firstName = dictionary["firstname"] as? String ?? ""
         lastName = dictionary["lastName"] as? String ?? ""
         companyName = dictionary["companyName"] as? String ?? ""
+        phoneNumber = dictionary["phoneNumber"] as? String ?? ""
     }
 }
