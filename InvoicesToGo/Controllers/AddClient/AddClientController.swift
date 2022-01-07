@@ -14,10 +14,15 @@ protocol AddClientControllerDelegate: AnyObject {
 class AddClientController: UIViewController {
     // MARK: - Properties
 
-    @IBOutlet var clientNameTextField: UITextField!
-    @IBOutlet var clientPhoneTextField: UITextField!
-    @IBOutlet var clientEmailTextField: UITextField!
-
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var phoneTextField: UITextField!
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet weak var address1TextField: UITextField!
+    @IBOutlet weak var address2TextField: UITextField!
+    @IBOutlet weak var cityTextField: UITextField!
+    @IBOutlet weak var stateTextField: UITextField!
+    @IBOutlet weak var zipCodeTextField: UITextField!
+    
     weak var delegate: AddClientControllerDelegate?
 
     // MARK: - Lifecycle
@@ -29,19 +34,29 @@ class AddClientController: UIViewController {
     // MARK: - Actions
 
     @IBAction func addButtonPressed(_ sender: UIButton) {
-        guard let clientName = clientNameTextField.text,
-              let clientPhone = clientPhoneTextField.text,
-              let clientEmail = clientEmailTextField.text,
-              !clientName.isEmpty,
-              !clientPhone.isEmpty
+        guard let name = nameTextField.text,
+              let phone = phoneTextField.text,
+              let email = emailTextField.text,
+              let address1 = address1TextField.text,
+              let address2 = address2TextField.text,
+              let city = cityTextField.text,
+              let state = stateTextField.text,
+              let zipCode = zipCodeTextField.text,
+              !name.isEmpty,
+              !phone.isEmpty
         else {
             showMessage(withTitle: "Missing Fields", message: "Please fill in the name and phone number for the client")
             return
         }
 
-        let dictionary: [String: Any] = ["fullName": clientName,
-                                         "phoneNumber": clientPhone,
-                                         "email": clientEmail]
+        let dictionary: [String: Any] = ["fullName": name,
+                                         "phoneNumber": phone,
+                                         "email": email,
+                                         "address1": address1,
+                                         "address2": address2,
+                                         "city": city,
+                                         "state": state,
+                                         "zipCode": zipCode]
 
         let client = Client(dictionary: dictionary)
         delegate?.addButtonPressed(client: client)
