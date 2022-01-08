@@ -137,21 +137,28 @@ class InvoicesController: UIViewController {
             let usersPhone = viewModel.user.phoneNumber
             usersPhone.draw(at: CGPoint(x: 250, y: currentY + 110), withAttributes: usersInfoAttributes)
             
+            var clientInfoY = currentY + 50
             let clientInfoAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
             let fullName = viewModel.invoices[index].clientInfo.fullName
-            fullName.draw(at: CGPoint(x: 25, y: currentY + 50), withAttributes: clientInfoAttributes)
+            fullName.draw(at: CGPoint(x: 25, y: clientInfoY), withAttributes: clientInfoAttributes)
             
             let address1 = viewModel.invoices[index].clientInfo.address1
-            address1.draw(at: CGPoint(x: 25, y: currentY + 65), withAttributes: clientInfoAttributes)
+            clientInfoY += 15
+            address1.draw(at: CGPoint(x: 25, y: clientInfoY), withAttributes: clientInfoAttributes)
             
             let address2 = viewModel.invoices[index].clientInfo.address2
-            address2.draw(at: CGPoint(x: 25, y: currentY + 80), withAttributes: clientInfoAttributes)
+            if !address2.isEmpty {
+                clientInfoY += 15
+                address2.draw(at: CGPoint(x: 25, y: clientInfoY), withAttributes: clientInfoAttributes)
+            }
             
+            clientInfoY += 15
             let cityStateZip = "\(viewModel.invoices[index].clientInfo.city), \(viewModel.invoices[index].clientInfo.state) \(viewModel.invoices[index].clientInfo.zipCode)"
-            cityStateZip.draw(at: CGPoint(x: 25, y: currentY + 95), withAttributes: clientInfoAttributes)
+            cityStateZip.draw(at: CGPoint(x: 25, y: clientInfoY), withAttributes: clientInfoAttributes)
             
+            clientInfoY += 17
             let phoneNumber = viewModel.invoices[index].clientInfo.phoneNumber
-            phoneNumber.draw(at: CGPoint(x: 25, y: currentY + 115), withAttributes: clientInfoAttributes)
+            phoneNumber.draw(at: CGPoint(x: 25, y: clientInfoY), withAttributes: clientInfoAttributes)
 
             currentY += 180
             let headerLabelAtrributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)]

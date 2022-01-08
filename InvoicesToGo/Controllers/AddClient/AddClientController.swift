@@ -43,9 +43,13 @@ class AddClientController: UIViewController {
               let state = stateTextField.text,
               let zipCode = zipCodeTextField.text,
               !name.isEmpty,
-              !phone.isEmpty
+              !phone.isEmpty,
+              !address1.isEmpty,
+              !city.isEmpty,
+              !state.isEmpty,
+              !zipCode.isEmpty
         else {
-            showMessage(withTitle: "Missing Fields", message: "Please fill in the name and phone number for the client")
+            showMessage(withTitle: "Missing Fields", message: "Please fill in all fields that have a * next to their description")
             return
         }
 

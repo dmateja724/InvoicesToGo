@@ -28,7 +28,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="lWu-dm-Mn0">
                     <rect key="frame" x="40" y="224" width="334" height="279"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tfB-ds-1pw">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name *" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tfB-ds-1pw">
                             <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="given-name"/>
@@ -36,7 +36,7 @@
                                 <action selector="textDidChange:" destination="-1" eventType="editingChanged" id="9T1-Tc-Klb"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N1q-vt-QZ1">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name *" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N1q-vt-QZ1">
                             <rect key="frame" x="0.0" y="49" width="334" height="34"/>
                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="family-name"/>
@@ -44,7 +44,7 @@
                                 <action selector="textDidChange:" destination="-1" eventType="editingChanged" id="9Po-V0-3Pe"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uV2-f4-8gw">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company Name *" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uV2-f4-8gw">
                             <rect key="frame" x="0.0" y="98" width="334" height="34"/>
                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="organization"/>
@@ -52,7 +52,7 @@
                                 <action selector="textDidChange:" destination="-1" eventType="editingChanged" id="2Fl-bz-i2n"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZDQ-La-oMt">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number *" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZDQ-La-oMt">
                             <rect key="frame" x="0.0" y="147" width="334" height="34"/>
                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="organization"/>
@@ -60,7 +60,7 @@
                                 <action selector="textDidChange:" destination="-1" eventType="editingChanged" id="30T-Ul-xB2"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g64-HL-OZL">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email *" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g64-HL-OZL">
                             <rect key="frame" x="0.0" y="196" width="334" height="34"/>
                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" textContentType="email"/>
@@ -68,7 +68,7 @@
                                 <action selector="textDidChange:" destination="-1" eventType="editingChanged" id="SiM-aE-bWT"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0gI-6R-6jj">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password *" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0gI-6R-6jj">
                             <rect key="frame" x="0.0" y="245" width="334" height="34"/>
                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>

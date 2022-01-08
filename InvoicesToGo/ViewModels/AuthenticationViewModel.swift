@@ -43,7 +43,7 @@ struct SignUpViewModel: AuthenticationViewModel {
     var phoneNumber: String?
 
     var formIsValid: Bool {
-        firstName?.isEmpty == false && lastName?.isEmpty == false && companyName?.isEmpty == false && email?.isEmpty == false && password?.isEmpty == false
+        firstName?.isEmpty == false && lastName?.isEmpty == false && companyName?.isEmpty == false && email?.isEmpty == false && password?.isEmpty == false && phoneNumber?.isEmpty == false
     }
 
     var buttonBackgroundColor: UIColor {
