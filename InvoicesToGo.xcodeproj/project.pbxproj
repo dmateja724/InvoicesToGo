@@ -15,6 +15,9 @@
 		4911E34E27795184003D026D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4911E34D27795184003D026D /* GoogleService-Info.plist */; };
 		4917710F2774089100D90BC4 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4917710D2774089100D90BC4 /* ItemCell.swift */; };
 		491771102774089100D90BC4 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4917710E2774089100D90BC4 /* ItemCell.xib */; };
+		492389C22783D94200044B71 /* PDFPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492389C02783D94200044B71 /* PDFPreviewController.swift */; };
+		492389C32783D94200044B71 /* PDFPreviewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492389C12783D94200044B71 /* PDFPreviewController.xib */; };
+		492389C52783DA1700044B71 /* PDFPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492389C42783DA1700044B71 /* PDFPreviewViewModel.swift */; };
 		494037C32775718600CCCD4C /* InvoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494037C12775718600CCCD4C /* InvoiceCell.swift */; };
 		494037C42775718600CCCD4C /* InvoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494037C22775718600CCCD4C /* InvoiceCell.xib */; };
 		4958A216277A18580076F2DD /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958A215277A18580076F2DD /* AuthService.swift */; };
@@ -56,6 +59,9 @@
 		4911E34D27795184003D026D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4917710D2774089100D90BC4 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		4917710E2774089100D90BC4 /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
+		492389C02783D94200044B71 /* PDFPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPreviewController.swift; sourceTree = "<group>"; };
+		492389C12783D94200044B71 /* PDFPreviewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PDFPreviewController.xib; sourceTree = "<group>"; };
+		492389C42783DA1700044B71 /* PDFPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPreviewViewModel.swift; sourceTree = "<group>"; };
 		494037C12775718600CCCD4C /* InvoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceCell.swift; sourceTree = "<group>"; };
 		494037C22775718600CCCD4C /* InvoiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvoiceCell.xib; sourceTree = "<group>"; };
 		4958A215277A18580076F2DD /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -157,6 +163,15 @@
 			path = ItemCell;
 			sourceTree = "<group>";
 		};
+		492389BF2783D90F00044B71 /* PDFPreviewController */ = {
+			isa = PBXGroup;
+			children = (
+				492389C02783D94200044B71 /* PDFPreviewController.swift */,
+				492389C12783D94200044B71 /* PDFPreviewController.xib */,
+			);
+			path = PDFPreviewController;
+			sourceTree = "<group>";
+		};
 		494037C02775716C00CCCD4C /* InvoiceCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +187,7 @@
 				495C666A2772C76300C2676F /* NewInvoiceViewModel.swift */,
 				497A646C2777A8F40088BC30 /* InvoicesViewModel.swift */,
 				4998055D277A5A0900C955C4 /* AuthenticationViewModel.swift */,
+				492389C42783DA1700044B71 /* PDFPreviewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -255,6 +271,7 @@
 		496A476A277179F600DF8DE5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				492389BF2783D90F00044B71 /* PDFPreviewController */,
 				4994374A277E199700B51E17 /* AddClient */,
 				496A477227717C8C00DF8DE5 /* MainTabController.swift */,
 				4911E3402779437A003D026D /* Authentication */,
@@ -386,6 +403,7 @@
 				496A4763277179BE00DF8DE5 /* LaunchScreen.storyboard in Resources */,
 				496A4760277179BE00DF8DE5 /* Assets.xcassets in Resources */,
 				491771102774089100D90BC4 /* ItemCell.xib in Resources */,
+				492389C32783D94200044B71 /* PDFPreviewController.xib in Resources */,
 				4911E34E27795184003D026D /* GoogleService-Info.plist in Resources */,
 				494037C42775718600CCCD4C /* InvoiceCell.xib in Resources */,
 				495C66702772CDE900C2676F /* AddItemController.xib in Resources */,
@@ -446,8 +464,10 @@
 				4994374D277E19AF00B51E17 /* AddClientController.swift in Sources */,
 				496A4757277179BD00DF8DE5 /* AppDelegate.swift in Sources */,
 				4911E344277943C6003D026D /* LoginController.swift in Sources */,
+				492389C22783D94200044B71 /* PDFPreviewController.swift in Sources */,
 				49943752277E526200B51E17 /* Client.swift in Sources */,
 				495C666B2772C76300C2676F /* NewInvoiceViewModel.swift in Sources */,
+				492389C52783DA1700044B71 /* PDFPreviewViewModel.swift in Sources */,
 				4911E34B27794CC3003D026D /* SignUpController.swift in Sources */,
 				4958A218277A1A5E0076F2DD /* UserService.swift in Sources */,
 				497A64712777AFA40088BC30 /* Item.swift in Sources */,

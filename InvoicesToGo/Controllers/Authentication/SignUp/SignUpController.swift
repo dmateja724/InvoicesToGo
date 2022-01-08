@@ -13,6 +13,7 @@ class SignUpController: UIViewController {
     @IBOutlet var firstNameTextField: UITextField!
     @IBOutlet var lastNameTextField: UITextField!
     @IBOutlet var companyNameTextField: UITextField!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var signUpButton: UIButton!
@@ -36,6 +37,8 @@ class SignUpController: UIViewController {
             viewModel.lastName = sender.text
         } else if sender == companyNameTextField {
             viewModel.companyName = sender.text
+        } else if sender == phoneNumberTextField {
+            viewModel.phoneNumber = sender.text
         } else if sender == emailTextField {
             viewModel.email = sender.text
         } else {
@@ -50,12 +53,13 @@ class SignUpController: UIViewController {
               let lasName = lastNameTextField.text,
               let companyName = companyNameTextField.text,
               let email = emailTextField.text,
-              let password = passwordTextField.text
+              let password = passwordTextField.text,
+              let phoneNumber = phoneNumberTextField.text
         else {
             return
         }
 
-        let credentials = AuthCredentials(firstName: firstName, lastName: lasName, companyName: companyName, email: email, password: password)
+        let credentials = AuthCredentials(firstName: firstName, lastName: lasName, companyName: companyName, email: email, password: password, phoneNumber: phoneNumber)
 
         AuthService.registerUser(withCredential: credentials) { error in
             if let error = error {

@@ -17,7 +17,12 @@ enum InvoiceService {
 
         let clientInfo: [String: Any] = ["fullName": invoice.clientInfo.fullName,
                                          "email": invoice.clientInfo.email,
-                                         "phoneNumber": invoice.clientInfo.phoneNumber]
+                                         "phoneNumber": invoice.clientInfo.phoneNumber,
+                                         "address1": invoice.clientInfo.address1,
+                                         "address2": invoice.clientInfo.address2,
+                                         "city": invoice.clientInfo.city,
+                                         "state": invoice.clientInfo.state,
+                                         "zipCode": invoice.clientInfo.zipCode]
 
         let data: [String: Any] = ["uid": invoice.uid,
                                    "invoiceNumber": invoice.invoiceNumber,
