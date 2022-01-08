@@ -114,7 +114,7 @@ class InvoicesController: UIViewController {
         let data = renderer.pdfData { context in
             context.beginPage()
 
-            let headerAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 35)]
+            let headerAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 30)]
             let header = viewModel.user.companyName
             currentY += 20
             header.draw(at: CGPoint(x: 20, y: currentY), withAttributes: headerAttributes)
@@ -127,9 +127,15 @@ class InvoicesController: UIViewController {
             let date = todaysDate
             date.draw(at: CGPoint(x: 450, y: currentY + 40), withAttributes: dateAttributes)
             
-            let userInfoAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
-            let userEmail = viewModel.user.email
-            userEmail.draw(at: CGPoint(x: 400, y: currentY + 65), withAttributes: userInfoAttributes)
+            let usersInfoAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
+            let usersName = "\(viewModel.user.firstName) \(viewModel.user.lastName)"
+            usersName.draw(at: CGPoint(x: 250, y: currentY + 70), withAttributes: usersInfoAttributes)
+            
+            let usersEmail = viewModel.user.email
+            usersEmail.draw(at: CGPoint(x: 250, y: currentY + 90), withAttributes: usersInfoAttributes)
+            
+            let usersPhone = viewModel.user.phoneNumber
+            usersPhone.draw(at: CGPoint(x: 250, y: currentY + 110), withAttributes: usersInfoAttributes)
             
             let clientInfoAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
             let fullName = viewModel.invoices[index].clientInfo.fullName
