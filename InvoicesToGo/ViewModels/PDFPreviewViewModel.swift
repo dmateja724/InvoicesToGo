@@ -8,9 +8,11 @@
 import Foundation
 
 class PDFPreviewViewModel {
-    var documentData: Data
+    var invoice: Invoice
+    var user: User
     
-    init(documentData: Data) {
-        self.documentData = documentData
+    init(user: User, invoice: Invoice) {
+        self.user = user
+        self.invoice = invoice
     }
 }
