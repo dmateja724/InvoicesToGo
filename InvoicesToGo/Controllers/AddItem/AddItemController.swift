@@ -24,6 +24,7 @@ class AddItemController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
     }
 
     // MARK: - Actions

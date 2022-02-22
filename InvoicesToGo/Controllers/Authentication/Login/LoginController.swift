@@ -26,6 +26,7 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateForm()
+        self.hideKeyboardWhenTappedAround() 
     }
 
     // MARK: - Actions

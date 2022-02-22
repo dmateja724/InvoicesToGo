@@ -26,6 +26,7 @@ class ResetPasswordController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        self.hideKeyboardWhenTappedAround() 
     }
 
     // MARK: - Helpers
