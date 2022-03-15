@@ -27,17 +27,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GiG-rh-Nnb">
-                    <rect key="frame" x="20" y="203" width="374" height="34"/>
+                    <rect key="frame" x="20" y="153" width="374" height="34"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CW5-SH-BR1">
-                    <rect key="frame" x="20" y="252" width="374" height="34"/>
+                    <rect key="frame" x="20" y="202" width="374" height="34"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wa8-oA-X5O">
-                    <rect key="frame" x="20" y="301" width="374" height="34"/>
+                    <rect key="frame" x="20" y="251" width="374" height="34"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                 </textField>
@@ -75,13 +75,13 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Client" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVm-uZ-kvc">
-                    <rect key="frame" x="146.5" y="104" width="121" height="33"/>
+                    <rect key="frame" x="146.5" y="94" width="121" height="33"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dtz-Ml-lwZ" userLabel="divider">
-                    <rect key="frame" x="107" y="140" width="200" height="3"/>
+                    <rect key="frame" x="107" y="130" width="200" height="3"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="IHy-OX-1Vx"/>
@@ -89,29 +89,29 @@
                     </constraints>
                 </view>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address 1*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f5w-M9-Iec">
-                    <rect key="frame" x="20" y="350" width="374" height="34"/>
+                    <rect key="frame" x="20" y="300" width="374" height="34"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                    <textInputTraits key="textInputTraits" textContentType="address-line1"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mNe-hn-l3Z">
-                    <rect key="frame" x="20" y="399" width="374" height="34"/>
+                    <rect key="frame" x="20" y="349" width="374" height="34"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                    <textInputTraits key="textInputTraits" textContentType="address-line2"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2mJ-2H-yhV">
-                    <rect key="frame" x="20" y="448" width="374" height="34"/>
+                    <rect key="frame" x="20" y="398" width="374" height="34"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="address-level2"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jWo-Nc-LnB">
-                    <rect key="frame" x="20" y="497" width="374" height="34"/>
+                    <rect key="frame" x="20" y="447" width="374" height="34"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" textContentType="address-level1"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip Code*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ttA-le-eML">
-                    <rect key="frame" x="20" y="546" width="374" height="34"/>
+                    <rect key="frame" x="20" y="496" width="374" height="34"/>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES" textContentType="postal-code"/>
                 </textField>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -144,8 +144,8 @@
                 <constraint firstItem="rWq-tw-B1T" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="ekA-bT-UaN"/>
                 <constraint firstItem="jWo-Nc-LnB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="h5E-Cl-SIT"/>
                 <constraint firstItem="2mJ-2H-yhV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="hLc-wB-mDo"/>
-                <constraint firstItem="JVm-uZ-kvc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="mvd-ci-HhC"/>
-                <constraint firstItem="GiG-rh-Nnb" firstAttribute="top" secondItem="Dtz-Ml-lwZ" secondAttribute="bottom" constant="60" id="nh5-Lj-pqX"/>
+                <constraint firstItem="JVm-uZ-kvc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="mvd-ci-HhC"/>
+                <constraint firstItem="GiG-rh-Nnb" firstAttribute="top" secondItem="Dtz-Ml-lwZ" secondAttribute="bottom" constant="20" id="nh5-Lj-pqX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rWq-tw-B1T" secondAttribute="trailing" constant="5" id="pSS-qU-V1J"/>
                 <constraint firstItem="ttA-le-eML" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="tNI-3j-ysJ"/>
                 <constraint firstItem="mNe-hn-l3Z" firstAttribute="top" secondItem="f5w-M9-Iec" secondAttribute="bottom" constant="15" id="yAB-Ca-NAZ"/>
