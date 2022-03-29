@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewInvoiceController" customModule="InvoicesToGo" customModuleProvider="target">
             <connections>
                 <outlet property="addClientButton" destination="Sd0-OL-J7O" id="74Y-iS-wAK"/>
+                <outlet property="addCustomerButton" destination="5HF-kl-dH9" id="OwQ-rq-fq3"/>
                 <outlet property="dateLabel" destination="FgY-fC-tX5" id="jqf-1l-TJj"/>
                 <outlet property="invoiceNumberLabel" destination="qh0-Tu-PwL" id="fCL-LV-6st"/>
                 <outlet property="tableView" destination="bA0-Qs-FRt" id="hn5-o8-unp"/>
@@ -94,6 +95,12 @@
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CUSTOMER INFO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRC-oL-UoE">
+                            <rect key="frame" x="222" y="121" width="134" height="21"/>
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KVU-2z-pXl">
                             <rect key="frame" x="10" y="11" width="96" height="55"/>
                             <subviews>
@@ -144,9 +151,29 @@
                                 <action selector="addItemPressed:" destination="-1" eventType="touchUpInside" id="KCp-Jg-hdt"/>
                             </connections>
                         </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5HF-kl-dH9">
+                            <rect key="frame" x="226" y="152" width="158" height="38"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="contacts_fill" imagePadding="6">
+                                <attributedString key="attributedTitle">
+                                    <fragment content="Add Customer">
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="Futura-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="addCustomerPressed:" destination="-1" eventType="touchUpInside" id="Szf-Pf-qgc"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="KVU-2z-pXl" firstAttribute="leading" secondItem="7tX-B7-tv4" secondAttribute="leading" constant="10" id="12B-xZ-wDT"/>
+                        <constraint firstItem="7tX-B7-tv4" firstAttribute="trailing" secondItem="FRC-oL-UoE" secondAttribute="trailing" constant="58" id="3gb-Pd-2RY"/>
+                        <constraint firstItem="5HF-kl-dH9" firstAttribute="top" secondItem="FRC-oL-UoE" secondAttribute="bottom" constant="10" id="4wZ-Qj-e2X"/>
+                        <constraint firstItem="WZ8-tJ-vDe" firstAttribute="top" secondItem="5HF-kl-dH9" secondAttribute="bottom" constant="33" id="7to-Kc-US4"/>
                         <constraint firstItem="zim-eI-dpE" firstAttribute="leading" secondItem="7tX-B7-tv4" secondAttribute="leading" constant="10" id="CeU-4s-dKW"/>
                         <constraint firstAttribute="bottom" secondItem="WZ8-tJ-vDe" secondAttribute="bottom" constant="597.5" id="Ism-rx-eza"/>
                         <constraint firstItem="zim-eI-dpE" firstAttribute="top" secondItem="KVU-2z-pXl" secondAttribute="bottom" constant="55" id="Jmw-c0-aVM"/>
@@ -162,6 +189,7 @@
                         <constraint firstItem="z5o-Dt-btu" firstAttribute="top" secondItem="pqv-Lk-PxU" secondAttribute="bottom" constant="10" id="fWu-c1-OYn"/>
                         <constraint firstItem="Sd0-OL-J7O" firstAttribute="leading" secondItem="7tX-B7-tv4" secondAttribute="leading" constant="10" id="gHu-Id-i36"/>
                         <constraint firstItem="Y0Z-TM-q7z" firstAttribute="top" secondItem="NzF-5b-Fa8" secondAttribute="top" constant="11" id="iBL-a8-04p"/>
+                        <constraint firstItem="7tX-B7-tv4" firstAttribute="trailing" secondItem="5HF-kl-dH9" secondAttribute="trailing" constant="30" id="ndc-Jd-CsA"/>
                         <constraint firstItem="NzF-5b-Fa8" firstAttribute="trailing" secondItem="Sd0-OL-J7O" secondAttribute="trailing" constant="10" id="oVb-xo-P3l"/>
                         <constraint firstItem="V6I-RL-ijP" firstAttribute="leading" secondItem="7tX-B7-tv4" secondAttribute="leading" constant="10" id="ryV-vD-j88"/>
                         <constraint firstItem="IOQ-i4-bec" firstAttribute="leading" secondItem="7tX-B7-tv4" secondAttribute="leading" constant="10" id="t0V-yZ-bG9"/>

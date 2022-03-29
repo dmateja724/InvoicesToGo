@@ -8,12 +8,13 @@
 import UIKit
 
 protocol AddClientControllerDelegate: AnyObject {
-    func addButtonPressed(client: Client)
+    func addButtonPressed(client: Client, isCustomer: Bool)
 }
 
 class AddClientController: UIViewController {
     // MARK: - Properties
 
+    @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var phoneTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
@@ -24,12 +25,17 @@ class AddClientController: UIViewController {
     @IBOutlet weak var zipCodeTextField: UITextField!
     
     weak var delegate: AddClientControllerDelegate?
+    var isCustomer: Bool = false
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
+        if isCustomer {
+            headerLabel.text = "Add Customer"
+        }
     }
 
     // MARK: - Actions
@@ -64,7 +70,7 @@ class AddClientController: UIViewController {
                                          "zipCode": zipCode]
 
         let client = Client(dictionary: dictionary)
-        delegate?.addButtonPressed(client: client)
+        delegate?.addButtonPressed(client: client, isCustomer: isCustomer)
 
         DispatchQueue.main.async {
             self.dismiss(animated: true, completion: nil)

@@ -18,6 +18,7 @@ struct Invoice {
     var items: [Item] = .init()
     var totalAmount: Double
     var clientInfo: Client
+    var customerInfo: Client
 
     init(dictionary: [String: Any]) {
         uid = dictionary["uid"] as? String ?? ""
@@ -40,5 +41,6 @@ struct Invoice {
 
         totalAmount = dictionary["totalAmount"] as? Double ?? 0.0
         clientInfo = Client(dictionary: dictionary["clientInfo"] as? [String: Any] ?? [:])
+        customerInfo = Client(dictionary: dictionary["customerInfo"] as? [String: Any] ?? [:])
     }
 }
