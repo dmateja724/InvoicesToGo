@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddClientControllerDelegate: AnyObject {
-    func addButtonPressed(client: Client)
+    func addButtonPressed(client: Customer)
 }
 
 class AddClientController: UIViewController {
@@ -63,7 +63,7 @@ class AddClientController: UIViewController {
                                          "state": state,
                                          "zipCode": zipCode]
 
-        let client = Client(dictionary: dictionary)
+        let client = Customer(dictionary: dictionary)
         delegate?.addButtonPressed(client: client)
 
         DispatchQueue.main.async {

@@ -1,5 +1,5 @@
 //
-//  Client.swift
+//  Customer.swift
 //  InvoicesToGo
 //
 //  Created by Derrick Mateja on 12/30/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Client {
+struct Customer {
     var fullName: String
     var phoneNumber: String
     var email: String

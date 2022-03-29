@@ -5,6 +5,7 @@
 //  Created by Derrick Mateja on 12/20/21.
 //
 
+import Appwrite
 import Firebase
 import UIKit
 

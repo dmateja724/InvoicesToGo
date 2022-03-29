@@ -137,7 +137,7 @@ extension NewInvoiceController: AddItemControllerDelegate {
 // MARK: - AddClientControllerDelegate
 
 extension NewInvoiceController: AddClientControllerDelegate {
-    func addButtonPressed(client: Client) {
+    func addButtonPressed(client: Customer) {
         viewModel?.invoice.clientInfo = client
     }
 }
