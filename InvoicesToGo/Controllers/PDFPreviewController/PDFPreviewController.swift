@@ -51,7 +51,7 @@ class PDFPreviewController: UIViewController {
         let data = renderer.pdfData { context in
             context.beginPage()
 
-            let headerAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 30)]
+            let headerAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 25)]
             let header = user.companyName
             currentY += 20
             header.draw(at: CGPoint(x: 20, y: currentY), withAttributes: headerAttributes)
@@ -60,16 +60,16 @@ class PDFPreviewController: UIViewController {
             let ownerInfo = "\(user.firstName) \(user.lastName) | \(user.email) | \(user.phoneNumber)"
             ownerInfo.draw(at: CGPoint(x: 25, y: currentY + 35), withAttributes: ownerInfoAttributes)
 
-            let invoiceNumberAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)]
+            let invoiceNumberAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)]
             let invoiceNumber = "Invoice #: \(invoice.invoiceNumber)"
             invoiceNumber.draw(at: CGPoint(x: 450, y: currentY + 10), withAttributes: invoiceNumberAttributes)
 
-            let dateAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)]
+            let dateAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)]
             let date = todaysDate
             date.draw(at: CGPoint(x: 450, y: currentY + 40), withAttributes: dateAttributes)
 
             var clientInfoY = currentY + 70
-            let clientInfoAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
+            let clientInfoAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12)]
             let fullName = invoice.clientInfo.fullName
             fullName.draw(at: CGPoint(x: 25, y: clientInfoY), withAttributes: clientInfoAttributes)
 
@@ -92,31 +92,25 @@ class PDFPreviewController: UIViewController {
             phoneNumber.draw(at: CGPoint(x: 25, y: clientInfoY), withAttributes: clientInfoAttributes)
 
             currentY += 180
-            let headerLabelAtrributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)]
+            let headerLabelAtrributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)]
             let descriptionLabel = "Description"
             descriptionLabel.draw(at: CGPoint(x: 20, y: currentY), withAttributes: headerLabelAtrributes)
 
             let quantityLabel = "Quantity"
-            quantityLabel.draw(at: CGPoint(x: 325, y: currentY), withAttributes: headerLabelAtrributes)
-
-            let rateLabel = "Rate"
-            rateLabel.draw(at: CGPoint(x: 450, y: currentY), withAttributes: headerLabelAtrributes)
+            quantityLabel.draw(at: CGPoint(x: 425, y: currentY), withAttributes: headerLabelAtrributes)
 
             let amountLabel = "Amount"
             amountLabel.draw(at: CGPoint(x: 525, y: currentY), withAttributes: headerLabelAtrributes)
 
-            currentY += 70
+            currentY += 50
             for item in invoice.items {
-                let itemsAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
+                let itemsAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 12)]
 
                 let itemDescription = item.name
                 itemDescription.draw(at: CGPoint(x: 25, y: currentY), withAttributes: itemsAttributes)
 
                 let itemQuantity = "\(item.quantity)"
-                itemQuantity.draw(at: CGPoint(x: 350, y: currentY), withAttributes: itemsAttributes)
-
-                let itemRate = String(format: "%.2f", item.rate)
-                itemRate.draw(at: CGPoint(x: 450, y: currentY), withAttributes: itemsAttributes)
+                itemQuantity.draw(at: CGPoint(x: 450, y: currentY), withAttributes: itemsAttributes)
 
                 let itemAmount = String(format: "%.2f", Double(item.quantity) * item.rate)
                 itemAmount.draw(at: CGPoint(x: 535, y: currentY), withAttributes: itemsAttributes)
@@ -124,7 +118,7 @@ class PDFPreviewController: UIViewController {
                 currentY += 20
             }
 
-            let balanceDueAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 22)]
+            let balanceDueAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)]
             let balanceDue = "Balance Due: $\(String(format: "%.2f", invoice.totalAmount))"
             balanceDue.draw(at: CGPoint(x: Int(pageWidth) - balanceDue.count * 12, y: Int(pageHeight) - 100), withAttributes: balanceDueAttributes)
         }
