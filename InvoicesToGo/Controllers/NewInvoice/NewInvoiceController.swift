@@ -20,8 +20,8 @@ class NewInvoiceController: UIViewController {
     @IBOutlet var totalAmountLabel: UILabel!
     @IBOutlet var tableViewHeight: NSLayoutConstraint!
     @IBOutlet var addClientButton: UIButton!
-    @IBOutlet weak var addCustomerButton: UIButton!
-    
+    @IBOutlet var addCustomerButton: UIButton!
+
     private let reuseIdentifier = "ItemCell"
     weak var delegate: NewInvoiceControllerDelegate?
     var viewModel: NewInvoiceViewModel? {
@@ -34,7 +34,7 @@ class NewInvoiceController: UIViewController {
                 addClientButton.setTitle(viewModel.invoice.clientInfo.fullName, for: .normal)
                 addClientButton.setImage(UIImage(), for: .normal)
             }
-            
+
             if !viewModel.invoice.customerInfo.fullName.isEmpty {
                 addCustomerButton.setTitle(viewModel.invoice.customerInfo.fullName, for: .normal)
                 addCustomerButton.setImage(UIImage(), for: .normal)
@@ -78,6 +78,7 @@ class NewInvoiceController: UIViewController {
         viewController.isCustomer = true
         present(viewController, animated: true, completion: nil)
     }
+
     // MARK: - Helpers
 
     func configure() {

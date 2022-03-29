@@ -14,16 +14,16 @@ protocol AddClientControllerDelegate: AnyObject {
 class AddClientController: UIViewController {
     // MARK: - Properties
 
-    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet var headerLabel: UILabel!
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var phoneTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
-    @IBOutlet weak var address1TextField: UITextField!
-    @IBOutlet weak var address2TextField: UITextField!
-    @IBOutlet weak var cityTextField: UITextField!
-    @IBOutlet weak var stateTextField: UITextField!
-    @IBOutlet weak var zipCodeTextField: UITextField!
-    
+    @IBOutlet var address1TextField: UITextField!
+    @IBOutlet var address2TextField: UITextField!
+    @IBOutlet var cityTextField: UITextField!
+    @IBOutlet var stateTextField: UITextField!
+    @IBOutlet var zipCodeTextField: UITextField!
+
     weak var delegate: AddClientControllerDelegate?
     var isCustomer: Bool = false
 
@@ -31,8 +31,8 @@ class AddClientController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
-        
+        hideKeyboardWhenTappedAround()
+
         if isCustomer {
             headerLabel.text = "Add Customer"
         }

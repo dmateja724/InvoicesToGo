@@ -91,6 +91,28 @@ class PDFPreviewController: UIViewController {
             let phoneNumber = invoice.clientInfo.phoneNumber
             phoneNumber.draw(at: CGPoint(x: 25, y: clientInfoY), withAttributes: clientInfoAttributes)
 
+            var customerInfoY = currentY + 70
+            let customerFullName = invoice.customerInfo.fullName
+            customerFullName.draw(at: CGPoint(x: 300, y: customerInfoY), withAttributes: clientInfoAttributes)
+
+            let customerAddress1 = invoice.customerInfo.address1
+            customerInfoY += 15
+            customerAddress1.draw(at: CGPoint(x: 300, y: customerInfoY), withAttributes: clientInfoAttributes)
+
+            let customerAddress2 = invoice.customerInfo.address2
+            if !customerAddress2.isEmpty {
+                customerInfoY += 15
+                customerAddress2.draw(at: CGPoint(x: 300, y: customerInfoY), withAttributes: clientInfoAttributes)
+            }
+
+            customerInfoY += 15
+            let customerCityStateZip = "\(invoice.customerInfo.city), \(invoice.clientInfo.state) \(invoice.clientInfo.zipCode)"
+            customerCityStateZip.draw(at: CGPoint(x: 300, y: customerInfoY), withAttributes: clientInfoAttributes)
+
+            customerInfoY += 17
+            let customerPhoneNumber = invoice.customerInfo.phoneNumber
+            customerPhoneNumber.draw(at: CGPoint(x: 300, y: customerInfoY), withAttributes: clientInfoAttributes)
+
             currentY += 180
             let headerLabelAtrributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)]
             let descriptionLabel = "Description"
@@ -125,7 +147,7 @@ class PDFPreviewController: UIViewController {
 
         return data
     }
-    
+
     func sendEmail() {
         if let viewModel = viewModel {
             if MFMailComposeViewController.canSendMail() {
@@ -135,7 +157,7 @@ class PDFPreviewController: UIViewController {
                 mail.setSubject("\(viewModel.user.companyName): Invoice #\(viewModel.invoice.invoiceNumber) - \(viewModel.invoice.clientInfo.fullName)")
                 mail.addAttachmentData(generatePDF(invoice: viewModel.invoice, user: viewModel.user), mimeType: "application/pdf", fileName: "\(viewModel.user.companyName) Invoice - \(viewModel.invoice.clientInfo.fullName).pdf")
                 mail.setMessageBody("", isHTML: true)
-                
+
                 present(mail, animated: true)
             } else {
                 showMessage(withTitle: "Error", message: "Email is not configured on this device. Please configure and try agian.")

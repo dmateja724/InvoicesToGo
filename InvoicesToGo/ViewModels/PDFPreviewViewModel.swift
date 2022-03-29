@@ -10,7 +10,7 @@ import Foundation
 class PDFPreviewViewModel {
     var invoice: Invoice
     var user: User
-    
+
     init(user: User, invoice: Invoice) {
         self.user = user
         self.invoice = invoice

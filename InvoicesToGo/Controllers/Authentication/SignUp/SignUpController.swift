@@ -13,7 +13,7 @@ class SignUpController: UIViewController {
     @IBOutlet var firstNameTextField: UITextField!
     @IBOutlet var lastNameTextField: UITextField!
     @IBOutlet var companyNameTextField: UITextField!
-    @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet var phoneNumberTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var signUpButton: UIButton!
@@ -26,7 +26,7 @@ class SignUpController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateForm()
-        self.hideKeyboardWhenTappedAround() 
+        hideKeyboardWhenTappedAround()
     }
 
     // MARK: - Actions

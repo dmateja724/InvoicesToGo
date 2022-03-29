@@ -16,7 +16,6 @@ struct Client {
     var city: String
     var state: String
     var zipCode: String
-    
 
     init(dictionary: [String: Any]) {
         fullName = dictionary["fullName"] as? String ?? ""
