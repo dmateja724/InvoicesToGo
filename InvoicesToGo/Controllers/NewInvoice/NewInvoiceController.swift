@@ -20,6 +20,7 @@ class NewInvoiceController: UIViewController {
     @IBOutlet var totalAmountLabel: UILabel!
     @IBOutlet var tableViewHeight: NSLayoutConstraint!
     @IBOutlet var addClientButton: UIButton!
+    @IBOutlet var addCustomerButton: UIButton!
 
     private let reuseIdentifier = "ItemCell"
     weak var delegate: NewInvoiceControllerDelegate?
@@ -32,6 +33,11 @@ class NewInvoiceController: UIViewController {
             if !viewModel.invoice.clientInfo.fullName.isEmpty {
                 addClientButton.setTitle(viewModel.invoice.clientInfo.fullName, for: .normal)
                 addClientButton.setImage(UIImage(), for: .normal)
+            }
+
+            if !viewModel.invoice.customerInfo.fullName.isEmpty {
+                addCustomerButton.setTitle(viewModel.invoice.customerInfo.fullName, for: .normal)
+                addCustomerButton.setImage(UIImage(), for: .normal)
             }
 
             tableViewHeight?.constant = CGFloat(viewModel.invoice.items.count * 65)
@@ -63,6 +69,13 @@ class NewInvoiceController: UIViewController {
     @IBAction func addClientPressed(_ sender: UIButton) {
         let viewController = AddClientController()
         viewController.delegate = self
+        present(viewController, animated: true, completion: nil)
+    }
+
+    @IBAction func addCustomerPressed(_ sender: UIButton) {
+        let viewController = AddClientController()
+        viewController.delegate = self
+        viewController.isCustomer = true
         present(viewController, animated: true, completion: nil)
     }
 
@@ -137,7 +150,11 @@ extension NewInvoiceController: AddItemControllerDelegate {
 // MARK: - AddClientControllerDelegate
 
 extension NewInvoiceController: AddClientControllerDelegate {
-    func addButtonPressed(client: Client) {
-        viewModel?.invoice.clientInfo = client
+    func addButtonPressed(client: Client, isCustomer: Bool) {
+        if isCustomer {
+            viewModel?.invoice.customerInfo = client
+        } else {
+            viewModel?.invoice.clientInfo = client
+        }
     }
 }

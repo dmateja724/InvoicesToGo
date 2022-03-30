@@ -8,28 +8,34 @@
 import UIKit
 
 protocol AddClientControllerDelegate: AnyObject {
-    func addButtonPressed(client: Client)
+    func addButtonPressed(client: Client, isCustomer: Bool)
 }
 
 class AddClientController: UIViewController {
     // MARK: - Properties
 
+    @IBOutlet var headerLabel: UILabel!
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var phoneTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
-    @IBOutlet weak var address1TextField: UITextField!
-    @IBOutlet weak var address2TextField: UITextField!
-    @IBOutlet weak var cityTextField: UITextField!
-    @IBOutlet weak var stateTextField: UITextField!
-    @IBOutlet weak var zipCodeTextField: UITextField!
-    
+    @IBOutlet var address1TextField: UITextField!
+    @IBOutlet var address2TextField: UITextField!
+    @IBOutlet var cityTextField: UITextField!
+    @IBOutlet var stateTextField: UITextField!
+    @IBOutlet var zipCodeTextField: UITextField!
+
     weak var delegate: AddClientControllerDelegate?
+    var isCustomer: Bool = false
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
+
+        if isCustomer {
+            headerLabel.text = "Add Customer"
+        }
     }
 
     // MARK: - Actions
@@ -64,7 +70,7 @@ class AddClientController: UIViewController {
                                          "zipCode": zipCode]
 
         let client = Client(dictionary: dictionary)
-        delegate?.addButtonPressed(client: client)
+        delegate?.addButtonPressed(client: client, isCustomer: isCustomer)
 
         DispatchQueue.main.async {
             self.dismiss(animated: true, completion: nil)

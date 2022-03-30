@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,6 +14,7 @@
                 <outlet property="address2TextField" destination="mNe-hn-l3Z" id="dws-5k-WdL"/>
                 <outlet property="cityTextField" destination="2mJ-2H-yhV" id="WE9-8O-oFK"/>
                 <outlet property="emailTextField" destination="Wa8-oA-X5O" id="Vvv-Fx-L1o"/>
+                <outlet property="headerLabel" destination="JVm-uZ-kvc" id="uHj-Nk-7WD"/>
                 <outlet property="nameTextField" destination="GiG-rh-Nnb" id="94h-lu-uRh"/>
                 <outlet property="phoneTextField" destination="CW5-SH-BR1" id="8Xh-Nc-OTD"/>
                 <outlet property="stateTextField" destination="jWo-Nc-LnB" id="Z11-nd-Qcg"/>

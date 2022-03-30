@@ -24,6 +24,15 @@ enum InvoiceService {
                                          "state": invoice.clientInfo.state,
                                          "zipCode": invoice.clientInfo.zipCode]
 
+        let customerInfo: [String: Any] = ["fullName": invoice.customerInfo.fullName,
+                                           "email": invoice.customerInfo.email,
+                                           "phoneNumber": invoice.customerInfo.phoneNumber,
+                                           "address1": invoice.customerInfo.address1,
+                                           "address2": invoice.customerInfo.address2,
+                                           "city": invoice.customerInfo.city,
+                                           "state": invoice.customerInfo.state,
+                                           "zipCode": invoice.customerInfo.zipCode]
+
         let data: [String: Any] = ["uid": invoice.uid,
                                    "invoiceNumber": invoice.invoiceNumber,
                                    "dateCreated": invoice.dateCreated,
@@ -33,6 +42,7 @@ enum InvoiceService {
                                    "totalAmount": invoice.totalAmount,
                                    "companyName": invoice.companyName,
                                    "clientInfo": clientInfo,
+                                   "customerInfo": customerInfo,
                                    "ownerUid": invoice.ownerUid]
 
         COLLECTION_INVOICES.document(invoice.uid).setData(data, completion: completion)

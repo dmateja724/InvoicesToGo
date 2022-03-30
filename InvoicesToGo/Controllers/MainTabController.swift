@@ -10,7 +10,7 @@ import UIKit
 
 class MainTabController: UITabBarController {
     // MARK: - Lifecycle
-    
+
     var user: User? {
         didSet {
             guard let user = user else {
@@ -25,16 +25,16 @@ class MainTabController: UITabBarController {
         checkIfUserIsLoggedIn()
         fetchUser()
     }
-    
-    //MARK: - API
-    
+
+    // MARK: - API
+
     func fetchUser() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         UserService.fetchUser(withUid: uid) { user in
             self.user = user
         }
     }
-    
+
     func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
