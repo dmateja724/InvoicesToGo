@@ -121,8 +121,10 @@ class PDFPreviewController: UIViewController {
             }
 
             customerInfoY += 15
-            let customerCityStateZip = "\(invoice.customerInfo.city), \(invoice.clientInfo.state) \(invoice.clientInfo.zipCode)"
-            customerCityStateZip.draw(at: CGPoint(x: 300, y: customerInfoY), withAttributes: clientInfoAttributes)
+            if !invoice.customerInfo.city.isEmpty {
+                let customerCityStateZip = "\(invoice.customerInfo.city), \(invoice.customerInfo.state) \(invoice.customerInfo.zipCode)"
+                customerCityStateZip.draw(at: CGPoint(x: 300, y: customerInfoY), withAttributes: clientInfoAttributes)
+            }
 
             customerInfoY += 17
             let customerPhoneNumber = invoice.customerInfo.phoneNumber

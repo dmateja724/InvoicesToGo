@@ -90,9 +90,7 @@ class NewInvoiceController: UIViewController {
         tableView.dataSource = self
 
         tableView.rowHeight = 65
-        tableViewHeight.constant = CGFloat(invoice.items.count * 65)
         tableView.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellReuseIdentifier: reuseIdentifier)
-        tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: CGFloat(invoice.items.count * 65))
 
         dateLabel.text = invoice.dateCreated
         invoiceNumberLabel.text = String(invoice.invoiceNumber)
