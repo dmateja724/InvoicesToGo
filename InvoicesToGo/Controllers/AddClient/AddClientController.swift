@@ -26,6 +26,7 @@ class AddClientController: UIViewController {
 
     weak var delegate: AddClientControllerDelegate?
     var isCustomer: Bool = false
+    var client: Client?
 
     // MARK: - Lifecycle
 
@@ -36,6 +37,25 @@ class AddClientController: UIViewController {
         if isCustomer {
             headerLabel.text = "Add Customer"
         }
+
+        setClientInfo()
+    }
+
+    // MARK: - Helpers
+
+    private func setClientInfo() {
+        guard let client = client else {
+            return
+        }
+
+        nameTextField.text = client.fullName
+        phoneTextField.text = client.phoneNumber
+        emailTextField.text = client.email
+        address1TextField.text = client.address1
+        address2TextField.text = client.address2
+        cityTextField.text = client.city
+        stateTextField.text = client.state
+        zipCodeTextField.text = client.zipCode
     }
 
     // MARK: - Actions
