@@ -69,6 +69,11 @@ class NewInvoiceController: UIViewController {
     @IBAction func addClientPressed(_ sender: UIButton) {
         let viewController = AddClientController()
         viewController.delegate = self
+        
+        if let customerInfo = viewModel?.invoice.clientInfo {
+            viewController.client = customerInfo
+        }
+        
         present(viewController, animated: true, completion: nil)
     }
 
@@ -76,6 +81,11 @@ class NewInvoiceController: UIViewController {
         let viewController = AddClientController()
         viewController.delegate = self
         viewController.isCustomer = true
+        
+        if let customerInfo = viewModel?.invoice.customerInfo {
+            viewController.client = customerInfo
+        }
+        
         present(viewController, animated: true, completion: nil)
     }
 
