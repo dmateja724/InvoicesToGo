@@ -143,6 +143,11 @@ extension NewInvoiceController: UITableViewDataSource {
 extension NewInvoiceController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let addItemVC = AddItemController()
+        addItemVC.item = viewModel?.invoice.items[indexPath.item]
+        addItemVC.selectedIndex = indexPath
+        addItemVC.delegate = self
+        present(addItemVC, animated: true, completion: nil)
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -157,8 +162,13 @@ extension NewInvoiceController: UITableViewDelegate {
 // MARK: - AddItemControllerDelegate
 
 extension NewInvoiceController: AddItemControllerDelegate {
-    func addButtonPressed(item: Item) {
-        viewModel?.invoice.items.append(item)
+    func addButtonPressed(item: Item, indexPath: IndexPath?) {
+        if let indexPath = indexPath {
+            viewModel?.invoice.items[indexPath.item] = item
+        } else {
+            viewModel?.invoice.items.append(item)
+        }
+        
         setTotalAmount()
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddItemControllerDelegate: AnyObject {
-    func addButtonPressed(item: Item)
+    func addButtonPressed(item: Item, indexPath: IndexPath?)
 }
 
 class AddItemController: UIViewController {
@@ -19,12 +19,27 @@ class AddItemController: UIViewController {
     @IBOutlet var rateTextField: UITextField!
 
     weak var delegate: AddItemControllerDelegate?
+    var item: Item?
+    var selectedIndex: IndexPath?
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
+        setItem()
+    }
+    
+    //MARK: - Helpers
+    
+    private func setItem() {
+        guard let item = item else {
+            return
+        }
+
+        nameTextField.text = item.name
+        quantityTextField.text = "\(item.quantity)"
+        rateTextField.text = "\(Int(item.rate))"
     }
 
     // MARK: - Actions
@@ -33,13 +48,14 @@ class AddItemController: UIViewController {
         let name = nameTextField.text
         let quantity = Int(quantityTextField.text!) ?? 0
         let rate = Double(rateTextField.text!) ?? 0.0
+        
 
         let dictionary: [String: Any] = ["name": name!,
                                          "quantity": quantity,
                                          "rate": rate]
 
         let item = Item(dictionary: dictionary)
-        delegate?.addButtonPressed(item: item)
+        delegate?.addButtonPressed(item: item, indexPath: selectedIndex)
 
         DispatchQueue.main.async {
             self.dismiss(animated: true, completion: nil)
