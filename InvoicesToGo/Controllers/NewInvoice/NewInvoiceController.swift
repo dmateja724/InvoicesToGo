@@ -156,6 +156,8 @@ extension NewInvoiceController: UITableViewDelegate {
             viewModel?.invoice.items.remove(at: indexPath.item)
             tableView.reloadData()
         }
+        
+        setTotalAmount()
     }
 }
 
