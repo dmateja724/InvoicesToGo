@@ -69,11 +69,11 @@ class NewInvoiceController: UIViewController {
     @IBAction func addClientPressed(_ sender: UIButton) {
         let viewController = AddClientController()
         viewController.delegate = self
-        
+
         if let customerInfo = viewModel?.invoice.clientInfo {
             viewController.client = customerInfo
         }
-        
+
         present(viewController, animated: true, completion: nil)
     }
 
@@ -81,11 +81,11 @@ class NewInvoiceController: UIViewController {
         let viewController = AddClientController()
         viewController.delegate = self
         viewController.isCustomer = true
-        
+
         if let customerInfo = viewModel?.invoice.customerInfo {
             viewController.client = customerInfo
         }
-        
+
         present(viewController, animated: true, completion: nil)
     }
 
@@ -143,6 +143,14 @@ extension NewInvoiceController: UITableViewDataSource {
 extension NewInvoiceController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard var _ = viewModel?.invoice.items else { return }
+            viewModel?.invoice.items.remove(at: indexPath.item)
+            tableView.reloadData()
+        }
     }
 }
 
