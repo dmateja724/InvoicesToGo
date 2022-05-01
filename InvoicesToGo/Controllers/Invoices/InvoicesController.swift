@@ -27,13 +27,21 @@ class InvoicesController: UIViewController {
         configure()
         fetchInvoices()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchInvoices()
+    }
 
     // MARK: - Actions
 
     @objc func pressedCreateInvoiceButton() {
+        guard let viewModel = viewModel else {
+            return
+        }
+
         let viewController = NewInvoiceController()
         let newInvoice = generateInvoice()
-        viewController.viewModel = NewInvoiceViewModel(invoice: newInvoice)
+        viewController.viewModel = NewInvoiceViewModel(user: viewModel.user, invoice: newInvoice)
         viewController.delegate = self
         navigationController?.pushViewController(viewController, animated: true)
     }
@@ -115,16 +123,12 @@ extension InvoicesController: UITableViewDataSource {
 extension InvoicesController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let viewModel = viewModel else { return }
-        
+
         let viewController = NewInvoiceController()
         let invoice = viewModel.invoices[indexPath.item]
-        viewController.viewModel = NewInvoiceViewModel(invoice: invoice)
+        viewController.viewModel = NewInvoiceViewModel(user: viewModel.user, invoice: invoice)
         viewController.delegate = self
         navigationController?.pushViewController(viewController, animated: true)
-        
-//        let vc = PDFPreviewController()
-//        vc.viewModel = PDFPreviewViewModel(user: viewModel.user, invoice: viewModel.invoices[indexPath.item])
-//        navigationController?.pushViewController(vc, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 

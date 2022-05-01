@@ -122,7 +122,7 @@
                         <color key="baseForegroundColor" systemColor="linkColor"/>
                     </buttonConfiguration>
                     <connections>
-                        <action selector="addItemPressed:" destination="-1" eventType="touchUpInside" id="OMx-Pf-Pb9"/>
+                        <action selector="previewInvoicePressed:" destination="-1" eventType="touchUpInside" id="ZzL-Ln-GG8"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZ8-tJ-vDe">

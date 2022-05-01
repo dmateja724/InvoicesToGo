@@ -87,6 +87,16 @@ class NewInvoiceController: UIViewController {
         present(viewController, animated: true, completion: nil)
     }
 
+    @IBAction func previewInvoicePressed(_ sender: UIButton) {
+        guard let viewModel = viewModel else {
+            return
+        }
+
+        let vc = PDFPreviewController()
+        vc.viewModel = PDFPreviewViewModel(user: viewModel.user, invoice: viewModel.invoice)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
     // MARK: - Helpers
 
     func configure() {
