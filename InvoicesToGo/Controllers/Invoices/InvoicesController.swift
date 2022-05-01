@@ -120,6 +120,23 @@ extension InvoicesController: UITableViewDelegate {
         navigationController?.pushViewController(vc, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let invoices = viewModel?.invoices else { return }
+            let invoiceID = invoices[indexPath.item].uid
+
+            InvoiceService.deleteInvoice(invoiceID: invoiceID) { error in
+                if let error = error {
+                    self.showMessage(withTitle: "Error", message: error.localizedDescription)
+                    return
+                }
+
+                self.viewModel?.invoices.remove(at: indexPath.item)
+                tableView.reloadData()
+            }
+        }
+    }
 }
 
 // MARK: - NewInvoiceControllerDelegate

@@ -5,9 +5,23 @@
 //  Created by Derrick Mateja on 12/30/21.
 //
 
-import FirebaseFirestore
+import Firebase
+
+typealias FirestoreCompletion = (Error?) -> Void
 
 enum InvoiceService {
+    static func fetchInvoices(forUser uid: String, completion: @escaping ([Invoice]) -> Void) {
+        let query = COLLECTION_INVOICES.whereField("ownerUid", isEqualTo: uid)
+
+        query.getDocuments { snapshot, _ in
+            guard let documents = snapshot?.documents else { return }
+
+            let invoices = documents.map { Invoice(dictionary: $0.data()) }
+
+            completion(invoices)
+        }
+    }
+
     static func saveInvoice(invoice: Invoice, completion: @escaping (Error?) -> Void) {
         let items: [[String: Any]] = invoice.items.map { item in
             ["name": item.name,
@@ -48,15 +62,7 @@ enum InvoiceService {
         COLLECTION_INVOICES.document(invoice.uid).setData(data, completion: completion)
     }
 
-    static func fetchInvoices(forUser uid: String, completion: @escaping ([Invoice]) -> Void) {
-        let query = COLLECTION_INVOICES.whereField("ownerUid", isEqualTo: uid)
-
-        query.getDocuments { snapshot, _ in
-            guard let documents = snapshot?.documents else { return }
-
-            let invoices = documents.map { Invoice(dictionary: $0.data()) }
-
-            completion(invoices)
-        }
+    static func deleteInvoice(invoiceID: String, completion: @escaping (FirestoreCompletion)) {
+        COLLECTION_INVOICES.document(invoiceID).delete(completion: completion)
     }
 }
