@@ -15,10 +15,7 @@ class NewInvoiceController: UIViewController {
     // MARK: - Properties
 
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var dateLabel: UILabel!
-    @IBOutlet var invoiceNumberLabel: UILabel!
     @IBOutlet var totalAmountLabel: UILabel!
-    @IBOutlet var tableViewHeight: NSLayoutConstraint!
     @IBOutlet var addClientButton: UIButton!
     @IBOutlet var addCustomerButton: UIButton!
 
@@ -26,7 +23,9 @@ class NewInvoiceController: UIViewController {
     weak var delegate: NewInvoiceControllerDelegate?
     var viewModel: NewInvoiceViewModel? {
         didSet {
-            guard let viewModel = viewModel else {
+            guard let viewModel = viewModel,
+                  let _ = addClientButton
+            else {
                 return
             }
 
@@ -40,7 +39,6 @@ class NewInvoiceController: UIViewController {
                 addCustomerButton.setImage(UIImage(), for: .normal)
             }
 
-            tableViewHeight?.constant = CGFloat(viewModel.invoice.items.count * 65)
             tableView?.reloadData()
         }
     }
@@ -89,12 +87,22 @@ class NewInvoiceController: UIViewController {
         present(viewController, animated: true, completion: nil)
     }
 
+    @IBAction func previewInvoicePressed(_ sender: UIButton) {
+        guard let viewModel = viewModel else {
+            return
+        }
+
+        let vc = PDFPreviewController()
+        vc.viewModel = PDFPreviewViewModel(user: viewModel.user, invoice: viewModel.invoice)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
     // MARK: - Helpers
 
     func configure() {
         guard let invoice = viewModel?.invoice else { return }
 
-        navigationItem.title = "New Invoice"
+        navigationItem.title = "Invoice #\(invoice.invoiceNumber)"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveTapped))
         tableView.delegate = self
         tableView.dataSource = self
@@ -102,8 +110,6 @@ class NewInvoiceController: UIViewController {
         tableView.rowHeight = 65
         tableView.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellReuseIdentifier: reuseIdentifier)
 
-        dateLabel.text = invoice.dateCreated
-        invoiceNumberLabel.text = String(invoice.invoiceNumber)
         setTotalAmount()
     }
 
@@ -156,7 +162,7 @@ extension NewInvoiceController: UITableViewDelegate {
             viewModel?.invoice.items.remove(at: indexPath.item)
             tableView.reloadData()
         }
-        
+
         setTotalAmount()
     }
 }
@@ -170,7 +176,7 @@ extension NewInvoiceController: AddItemControllerDelegate {
         } else {
             viewModel?.invoice.items.append(item)
         }
-        
+
         setTotalAmount()
     }
 }

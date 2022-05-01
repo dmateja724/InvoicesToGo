@@ -22,7 +22,7 @@ struct Invoice {
 
     init(dictionary: [String: Any]) {
         uid = dictionary["uid"] as? String ?? ""
-        invoiceNumber = (dictionary["invoiceNumber"] as? Int ?? 00) + 240
+        invoiceNumber = (dictionary["invoiceNumber"] as? Int ?? 00)
         dateCreated = dictionary["dateCreated"] as? String ?? ""
         companyName = dictionary["companyName"] as? String ?? ""
         ownerUid = dictionary["ownerUid"] as? String ?? ""

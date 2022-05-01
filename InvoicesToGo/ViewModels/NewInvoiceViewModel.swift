@@ -8,5 +8,6 @@
 import Foundation
 
 struct NewInvoiceViewModel {
+    var user: User
     var invoice: Invoice
 }

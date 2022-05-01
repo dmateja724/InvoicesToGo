@@ -143,12 +143,15 @@ class PDFPreviewController: UIViewController {
             let amountLabel = "Amount"
             amountLabel.draw(at: CGPoint(x: 525, y: currentY), withAttributes: headerLabelAtrributes)
 
-            if let pageCount = viewModel?.pageCount {
+            if let pageCount = viewModel?.pageCount,
+               !invoice.items.isEmpty
+            {
                 let totalItemCount = pageCount * 20 > viewModel!.invoice.items.count ? (viewModel!.invoice.items.count - 1) : pageCount * 20
                 let startItemCount = (pageCount - 1) * 20 > totalItemCount ? (pageCount * 20) - totalItemCount : (pageCount - 1) * 20
                 var currentItemCount = startItemCount
 
                 currentY += 50
+
                 for item in invoice.items[startItemCount ... totalItemCount] {
                     if currentItemCount == startItemCount + 20 {
                         break
