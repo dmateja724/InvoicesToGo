@@ -61,7 +61,7 @@ class InvoicesController: UIViewController {
     // MARK: - Helpers
 
     func generateInvoice() -> Invoice {
-        let invoiceNumber = viewModel!.invoices.count + 1
+        let invoiceNumber = viewModel!.invoices.count + 241
 
         let date = Date()
         let dateFormatter = DateFormatter()
