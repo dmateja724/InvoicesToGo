@@ -15,8 +15,6 @@ class NewInvoiceController: UIViewController {
     // MARK: - Properties
 
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var dateLabel: UILabel!
-    @IBOutlet var invoiceNumberLabel: UILabel!
     @IBOutlet var totalAmountLabel: UILabel!
     @IBOutlet var addClientButton: UIButton!
     @IBOutlet var addCustomerButton: UIButton!
@@ -102,8 +100,6 @@ class NewInvoiceController: UIViewController {
         tableView.rowHeight = 65
         tableView.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellReuseIdentifier: reuseIdentifier)
 
-        dateLabel.text = invoice.dateCreated
-        invoiceNumberLabel.text = String(invoice.invoiceNumber)
         setTotalAmount()
     }
 
