@@ -18,7 +18,6 @@ class NewInvoiceController: UIViewController {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var invoiceNumberLabel: UILabel!
     @IBOutlet var totalAmountLabel: UILabel!
-    @IBOutlet var tableViewHeight: NSLayoutConstraint!
     @IBOutlet var addClientButton: UIButton!
     @IBOutlet var addCustomerButton: UIButton!
 
@@ -26,7 +25,9 @@ class NewInvoiceController: UIViewController {
     weak var delegate: NewInvoiceControllerDelegate?
     var viewModel: NewInvoiceViewModel? {
         didSet {
-            guard let viewModel = viewModel else {
+            guard let viewModel = viewModel,
+                  let _ = addClientButton
+            else {
                 return
             }
 
@@ -40,7 +41,6 @@ class NewInvoiceController: UIViewController {
                 addCustomerButton.setImage(UIImage(), for: .normal)
             }
 
-            tableViewHeight?.constant = CGFloat(viewModel.invoice.items.count * 65)
             tableView?.reloadData()
         }
     }
@@ -94,7 +94,7 @@ class NewInvoiceController: UIViewController {
     func configure() {
         guard let invoice = viewModel?.invoice else { return }
 
-        navigationItem.title = "New Invoice"
+        navigationItem.title = "Invoice #\(invoice.invoiceNumber)"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveTapped))
         tableView.delegate = self
         tableView.dataSource = self
@@ -156,7 +156,7 @@ extension NewInvoiceController: UITableViewDelegate {
             viewModel?.invoice.items.remove(at: indexPath.item)
             tableView.reloadData()
         }
-        
+
         setTotalAmount()
     }
 }
@@ -170,7 +170,7 @@ extension NewInvoiceController: AddItemControllerDelegate {
         } else {
             viewModel?.invoice.items.append(item)
         }
-        
+
         setTotalAmount()
     }
 }
