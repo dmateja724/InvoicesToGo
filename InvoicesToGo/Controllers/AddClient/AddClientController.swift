@@ -69,12 +69,7 @@ class AddClientController: UIViewController {
               let city = cityTextField.text,
               let state = stateTextField.text,
               let zipCode = zipCodeTextField.text,
-              !name.isEmpty,
-              !phone.isEmpty,
-              !address1.isEmpty,
-              !city.isEmpty,
-              !state.isEmpty,
-              !zipCode.isEmpty
+              !name.isEmpty
         else {
             showMessage(withTitle: "Missing Fields", message: "Please fill in all fields that have a * next to their description")
             return

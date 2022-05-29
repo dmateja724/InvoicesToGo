@@ -89,8 +89,10 @@ class PDFPreviewController: UIViewController {
             fullName.draw(at: CGPoint(x: 25, y: clientInfoY), withAttributes: clientInfoAttributes)
 
             let address1 = invoice.clientInfo.address1
-            clientInfoY += 15
-            address1.draw(at: CGPoint(x: 25, y: clientInfoY), withAttributes: clientInfoAttributes)
+            if !address1.isEmpty {
+                clientInfoY += 15
+                address1.draw(at: CGPoint(x: 25, y: clientInfoY), withAttributes: clientInfoAttributes)
+            }
 
             let address2 = invoice.clientInfo.address2
             if !address2.isEmpty {
@@ -98,23 +100,27 @@ class PDFPreviewController: UIViewController {
                 address2.draw(at: CGPoint(x: 25, y: clientInfoY), withAttributes: clientInfoAttributes)
             }
 
-            clientInfoY += 15
-            if !invoice.customerInfo.city.isEmpty {
+            if !invoice.clientInfo.city.isEmpty {
+                clientInfoY += 15
                 let cityStateZip = "\(invoice.clientInfo.city), \(invoice.clientInfo.state) \(invoice.clientInfo.zipCode)"
                 cityStateZip.draw(at: CGPoint(x: 25, y: clientInfoY), withAttributes: clientInfoAttributes)
             }
 
-            clientInfoY += 17
-            let phoneNumber = invoice.clientInfo.phoneNumber
-            phoneNumber.draw(at: CGPoint(x: 25, y: clientInfoY), withAttributes: clientInfoAttributes)
-
+            if !invoice.clientInfo.phoneNumber.isEmpty {
+                clientInfoY += 17
+                let phoneNumber = invoice.clientInfo.phoneNumber
+                phoneNumber.draw(at: CGPoint(x: 25, y: clientInfoY), withAttributes: clientInfoAttributes)
+            }
+            
             var customerInfoY = currentY + 70
             let customerFullName = invoice.customerInfo.fullName
             customerFullName.draw(at: CGPoint(x: 300, y: customerInfoY), withAttributes: clientInfoAttributes)
 
             let customerAddress1 = invoice.customerInfo.address1
-            customerInfoY += 15
-            customerAddress1.draw(at: CGPoint(x: 300, y: customerInfoY), withAttributes: clientInfoAttributes)
+            if !customerAddress1.isEmpty {
+                customerInfoY += 15
+                customerAddress1.draw(at: CGPoint(x: 300, y: customerInfoY), withAttributes: clientInfoAttributes)
+            }
 
             let customerAddress2 = invoice.customerInfo.address2
             if !customerAddress2.isEmpty {
@@ -122,16 +128,18 @@ class PDFPreviewController: UIViewController {
                 customerAddress2.draw(at: CGPoint(x: 300, y: customerInfoY), withAttributes: clientInfoAttributes)
             }
 
-            customerInfoY += 15
             if !invoice.customerInfo.city.isEmpty {
+                customerInfoY += 15
                 let customerCityStateZip = "\(invoice.customerInfo.city), \(invoice.customerInfo.state) \(invoice.customerInfo.zipCode)"
                 customerCityStateZip.draw(at: CGPoint(x: 300, y: customerInfoY), withAttributes: clientInfoAttributes)
             }
 
-            customerInfoY += 17
-            let customerPhoneNumber = invoice.customerInfo.phoneNumber
-            customerPhoneNumber.draw(at: CGPoint(x: 300, y: customerInfoY), withAttributes: clientInfoAttributes)
-
+            if !invoice.customerInfo.phoneNumber.isEmpty {
+                customerInfoY += 17
+                let customerPhoneNumber = invoice.customerInfo.phoneNumber
+                customerPhoneNumber.draw(at: CGPoint(x: 300, y: customerInfoY), withAttributes: clientInfoAttributes)
+            }
+            
             currentY += 180
             let headerLabelAtrributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16)]
             let descriptionLabel = "Description"
