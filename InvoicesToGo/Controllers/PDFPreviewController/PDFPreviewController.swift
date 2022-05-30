@@ -19,7 +19,7 @@ class PDFPreviewController: UIViewController {
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Send Email", style: .done, target: self, action: #selector(sendEmailTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Send Email", style: .done, target: self, action: #selector(actionSheetPressed))
         super.viewDidLoad()
         generateInvoicePDF()
     }
@@ -28,6 +28,16 @@ class PDFPreviewController: UIViewController {
 
     @objc func sendEmailTapped() {
         sendEmail()
+    }
+    
+    @objc func actionSheetPressed() {
+        let attrs = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 72), NSAttributedString.Key.foregroundColor: UIColor.red]
+//        let str = NSAttributedString(string: "text", attributes: attrs)
+//        let print = UISimpleTextPrintFormatter(attributedText: str)
+        let pdf = generatePDFDocument(invoice: viewModel!.invoice, user: viewModel!.user)
+        
+        let vc = UIActivityViewController(activityItems: [pdf], applicationActivities: nil)
+        present(vc, animated: true)
     }
 
     // MARK: - Helpers
