@@ -46,7 +46,7 @@ class AddItemController: UIViewController {
 
     @IBAction func addButtonPressed(_ sender: UIButton) {
         let name = nameTextField.text
-        let quantity = Int(quantityTextField.text!) ?? 0
+        let quantity = Double(quantityTextField.text!) ?? 0.0
         let rate = Double(rateTextField.text!) ?? 0.0
         
 
